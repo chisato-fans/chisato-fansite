@@ -334,13 +334,16 @@
   .lightbox{
     display:none; position:fixed; inset:0; z-index:300;
     background:rgba(20,20,22,0.92);
-    align-items:center; justify-content:center;
-    flex-direction:column; gap:16px; padding:24px;
     overflow-y:auto;
   }
-  .lightbox.open{display:flex;}
+  .lightbox.open{display:block;}
+  .lightbox-inner{
+    min-height:100%; box-sizing:border-box;
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column; gap:16px; padding:24px;
+  }
   .lightbox img{
-    max-width:90vw; max-height:calc(100vh - 140px); display:block;
+    max-width:90vw; max-height:75vh; display:block;
     box-shadow:0 20px 60px rgba(0,0,0,0.5);
     flex-shrink:0;
   }
@@ -808,13 +811,15 @@
 </section>
 
 <div class="lightbox" id="galleryLightbox">
-  <img id="lightboxImg" src="" alt="">
-  <div class="lightbox-actions">
-    <a id="lightboxDownload" class="lightbox-download" href="#" download>
-      <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
-      画像を保存
-    </a>
-    <button type="button" class="lightbox-close" id="lightboxClose">閉じる ✕</button>
+  <div class="lightbox-inner">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-actions">
+      <a id="lightboxDownload" class="lightbox-download" href="#" download>
+        <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+        画像を保存
+      </a>
+      <button type="button" class="lightbox-close" id="lightboxClose">閉じる ✕</button>
+    </div>
   </div>
 </div>
 
@@ -937,6 +942,7 @@
   });
 
   const galleryLightbox = document.getElementById('galleryLightbox');
+  const lightboxInner = galleryLightbox.querySelector('.lightbox-inner');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxDownload = document.getElementById('lightboxDownload');
   const lightboxClose = document.getElementById('lightboxClose');
@@ -952,7 +958,7 @@
   });
   lightboxClose.addEventListener('click', () => galleryLightbox.classList.remove('open'));
   galleryLightbox.addEventListener('click', (e) => {
-    if(e.target === galleryLightbox) galleryLightbox.classList.remove('open');
+    if(e.target === galleryLightbox || e.target === lightboxInner) galleryLightbox.classList.remove('open');
   });
   document.addEventListener('keydown', (e) => {
     if(e.key === 'Escape') galleryLightbox.classList.remove('open');
