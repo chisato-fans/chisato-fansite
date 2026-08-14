@@ -391,7 +391,7 @@
         <iframe src="https://www.youtube.com/embed/u5F3piRdSiY?si=6gCkb7d_FLvUyUD-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
       <div class="view-counter">
-        <p class="vc-label">小林千悟くん 推しカメラ 総再生数</p>
+        <p class="vc-label">小林千悟くん 推しカメラ（4本） 総再生数</p>
         <p class="vc-number" id="totalViews">集計中…</p>
         <p class="vc-updated" id="lastUpdated"></p>
       </div>
@@ -824,7 +824,7 @@
       if(!res.ok) throw new Error('API request failed');
       const data = await res.json();
       const total = (data.items || []).reduce((sum, item) => sum + Number(item.statistics?.viewCount || 0), 0);
-      totalEl.textContent = total.toLocaleString('ja-JP') + '回';
+      totalEl.textContent = total.toLocaleString('ja-JP') + '回!!';
       const now = new Date();
       updatedEl.textContent = '最終更新：' + now.toLocaleString('ja-JP', {year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit'});
     }catch(err){
