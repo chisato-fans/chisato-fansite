@@ -336,11 +336,13 @@
     background:rgba(20,20,22,0.92);
     align-items:center; justify-content:center;
     flex-direction:column; gap:16px; padding:24px;
+    overflow-y:auto;
   }
   .lightbox.open{display:flex;}
   .lightbox img{
-    max-width:90vw; max-height:76vh; display:block;
+    max-width:90vw; max-height:calc(100vh - 140px); display:block;
     box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    flex-shrink:0;
   }
   .lightbox-actions{display:flex; align-items:center; gap:12px;}
   .lightbox-download, .lightbox-close{
