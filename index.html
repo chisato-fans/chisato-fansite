@@ -270,6 +270,7 @@
   .filter-tab.active[data-filter="live"]{background:#E8590C;}
   .filter-tab.active[data-filter="live-disc"]{background:#E8590C;}
   .filter-tab.active[data-filter="movie"]{background:#7048E8;}
+  .filter-tab.active[data-filter="tv"]{background:#0C8599;}
   .year-block.is-hidden{display:none;}
   .beat.is-hidden{display:none;}
 
@@ -277,9 +278,10 @@
   .timeline{position:relative;}
   .year-block{display:flex; gap:24px; align-items:flex-start;}
   .year-rail{
-    flex-shrink:0; width:64px; display:flex; flex-direction:column; align-items:center;
+    flex-shrink:0; width:64px; align-self:stretch; display:flex; flex-direction:column; align-items:center;
     padding-top:2px;
   }
+  .year-rail .year{position:sticky; top:84px;}
   .year-rail .year{
     font-family:"Oswald",sans-serif; font-size:20px; color:var(--text); writing-mode:vertical-rl;
     text-orientation:mixed; letter-spacing:0.1em; margin-bottom:10px;
@@ -309,6 +311,7 @@
   .tag-live{background:#E8590C;}
   .tag-award{background:#7048E8;}
   .tag-movie{background:#7048E8;}
+  .tag-tv{background:#0C8599;}
 
   /* gallery */
   .gallery-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;}
@@ -543,6 +546,7 @@
       <button class="filter-tab" data-filter="mv">Music Video</button>
       <button class="filter-tab" data-filter="streaming">Streaming</button>
       <button class="filter-tab" data-filter="movie">Movie</button>
+      <button class="filter-tab" data-filter="tv">TV</button>
     </div>
 
     <div class="timeline" id="historyTimeline">
@@ -601,6 +605,30 @@
               <p class="m-meta">Amazon Prime Video／DMM TV（配信中）</p>
             </div>
           </div>
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2025.09.10</p>
+              <p class="m-title">フジテレビ 週刊ナイナイミュージック（堂本光一 『The beginning of the world』）</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">ダンサー出演</p>
+            </div>
+          </div>
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2025.09.06</p>
+              <p class="m-title">フジテレビ MUSIC FAIR（堂本光一 『The beginning of the world』）</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">ダンサー出演</p>
+            </div>
+          </div>
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2025.09.06</p>
+              <p class="m-title">日本テレビ withMUSIC（堂本光一 『The beginning of the world』）</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">ダンサー出演</p>
+            </div>
+          </div>
           <div class="beat" data-category="mv">
             <div class="body">
               <p class="m-date">2025.08.14</p>
@@ -614,6 +642,38 @@
               <p class="m-title">堂本光一「The beginning of the world」</p>
               <span class="tag tag-mv">Music Video</span>
               <p class="m-meta">MV・メイキング収録：RAISE 初回限定盤A ／ マルチアングル収録：RAISE 初回限定版B</p>
+            </div>
+          </div>
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2025.07.25</p>
+              <p class="m-title">テレビ朝日 ミュージックステーション（YURIYAN RETRIEVER 『YURIYAN TIME』）</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">ダンサー出演</p>
+            </div>
+          </div>
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2025.06.27</p>
+              <p class="m-title">テレビ朝日 ミュージックステーション（Mrs. GREEN APPLE 『breakfast』）</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">ダンサー出演</p>
+            </div>
+          </div>
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2025.06.23</p>
+              <p class="m-title">TBS CDTVライブ！ライブ！（Mrs. GREEN APPLE 『breakfast』）</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">ダンサー出演</p>
+            </div>
+          </div>
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2025.05.20</p>
+              <p class="m-title">日本テレビ THE DANCE DAY</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">パフォーマンスサポート</p>
             </div>
           </div>
           <div class="beat" data-category="streaming">
@@ -675,11 +735,27 @@
               <span class="tag tag-mv">Music Video</span>
             </div>
           </div>
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2024.07.06</p>
+              <p class="m-title">日本テレビ THE MUSIC DAY 2024（ゆず 『ビューティフル』）</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">ダンサー出演</p>
+            </div>
+          </div>
           <div class="beat" data-category="mv">
             <div class="body">
               <p class="m-date">2024.06.26</p>
               <p class="m-title">ゆず「Beautiful」</p>
               <span class="tag tag-mv">Music Video</span>
+            </div>
+          </div>
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2024.05.04</p>
+              <p class="m-title">NHK ライブ・エール2024（ゆず 『ビューティフル』）</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">ダンサー出演</p>
             </div>
           </div>
           <div class="beat" data-category="mv">
@@ -731,6 +807,30 @@
       <div class="year-block">
         <div class="year-rail"><span class="year">2023</span></div>
         <div class="year-group">
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2023.12.31</p>
+              <p class="m-title">NHK 第74回 紅白歌合戦（ゆず 『ビューティフル』）</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">ダンサー出演</p>
+            </div>
+          </div>
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2023.12.18</p>
+              <p class="m-title">TBS CDTVライブ！ライブ！（&amp;TEAM 『Road Not Taken -Special ver.-』）</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">ダンサー出演</p>
+            </div>
+          </div>
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2023.12.02</p>
+              <p class="m-title">日本テレビ ベストアーティスト2023（ゆず 『ビューティフル』）</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">ダンサー出演</p>
+            </div>
+          </div>
           <div class="beat" data-category="live">
             <div class="body">
               <p class="m-date">2023.11.19</p>
@@ -764,6 +864,22 @@
               <p class="m-date">2023.09.29</p>
               <p class="m-title">ゆず「YUZU SPECIAL LIVE 2023 HIBIKI DAY1 BLUE × FUTARI」</p>
               <span class="tag tag-live">LIVE</span>
+            </div>
+          </div>
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2023.09.26</p>
+              <p class="m-title">NHK うたコン（ゆず 『ビューティフル』）</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">ダンサー出演</p>
+            </div>
+          </div>
+          <div class="beat" data-category="tv">
+            <div class="body">
+              <p class="m-date">2023.09.18</p>
+              <p class="m-title">TBS CDTVライブ！ライブ！（ゆず 『ビューティフル』）</p>
+              <span class="tag tag-tv">TV</span>
+              <p class="m-meta">ダンサー出演</p>
             </div>
           </div>
           <div class="beat" data-category="mv">
