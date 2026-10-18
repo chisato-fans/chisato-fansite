@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CHISATO QUIZ GACHA</title>
+<meta name="description" content="小林千悟(CHISATO)ファン向けクイズ&ガチャゲーム。クイズに挑戦してアイテムを集め、ビンゴコンプリートを目指そう!">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+<div id="app">
+
+  <header class="app-header">
+    <p class="app-header-eyebrow">FAN QUIZ &amp; GACHA GAME</p>
+    <h1 class="app-title">CHISATO QUIZ GACHA</h1>
+  </header>
+
+  <main id="screens">
+
+    <!-- ============ TOP ============ -->
+    <section id="screen-top" class="screen">
+      <div class="top-hero">
+        <div class="top-hero-emoji">🎤✨🎁</div>
+        <p class="top-subtitle" id="top-subtitle">小林千悟(CHISATO)クイズに挑戦して、アイテムを集めよう!</p>
+      </div>
+
+      <div id="top-progress" class="progress-card" hidden>
+        <h3 class="progress-card-title">MY PROGRESS</h3>
+
+        <div class="progress-row">
+          <span class="progress-label">📝 QUIZ</span>
+          <span class="progress-value"><span id="top-quiz-value">0 / 100</span></span>
+        </div>
+        <div class="progress-bar"><div class="progress-bar-fill" id="top-quiz-bar"></div></div>
+        <p class="progress-sub" id="top-quiz-percent">0% COMPLETE</p>
+
+        <div class="progress-row progress-row-spaced">
+          <span class="progress-label">🎁 ITEMS</span>
+          <span class="progress-value" id="top-item-value">0 / 24</span>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <button id="btn-continue" class="btn btn-primary btn-large" hidden>続きから遊ぶ</button>
+        <button id="btn-start-new" class="btn btn-primary btn-large">最初から遊ぶ</button>
+        <button id="btn-goto-collection" class="btn btn-outline">コレクションを見る</button>
+      </div>
+    </section>
+
+    <!-- ============ QUIZ ============ -->
+    <section id="screen-quiz" class="screen">
+      <div class="quiz-header">
+        <button id="btn-quiz-quit" class="btn-quit" aria-label="クイズをやめる">✕ やめる</button>
+        <div class="quiz-progress-text"><span id="quiz-index">1</span> / <span id="quiz-total">25</span></div>
+        <span class="quiz-difficulty-badge" id="quiz-difficulty-badge">初級</span>
+      </div>
+      <div class="quiz-progress-bar"><div class="quiz-progress-bar-fill" id="quiz-progress-bar-fill"></div></div>
+
+      <div class="quiz-question-card" id="quiz-question-card">
+        <p class="quiz-question-text" id="quiz-question-text"></p>
+      </div>
+
+      <div class="quiz-choices" id="quiz-choices"></div>
+
+      <div class="quiz-feedback" id="quiz-feedback" hidden>
+        <p class="quiz-feedback-text" id="quiz-feedback-text"></p>
+        <p class="quiz-feedback-explanation" id="quiz-feedback-explanation"></p>
+        <button id="btn-quiz-next" class="btn btn-primary btn-large">次へ</button>
+      </div>
+    </section>
+
+    <!-- ============ RESULT ============ -->
+    <section id="screen-result" class="screen">
+      <h2 class="screen-title">RESULT</h2>
+
+      <div class="result-score-card">
+        <p class="result-score-big"><span id="result-correct">0</span> / <span id="result-total">25</span>問 正解!</p>
+        <p class="result-accuracy">正答率 <span id="result-accuracy">0</span>%</p>
+      </div>
+
+      <div class="result-collection-card">
+        <h3>QUIZ COLLECTION</h3>
+        <p class="result-newly-cleared" id="result-newly-cleared">今回、新たに<strong id="result-newly-cleared-num">0</strong>問CLEAR!</p>
+        <p class="result-progress-numbers">
+          <span id="result-before-total">0</span> → <span id="result-after-total">0</span> / <span id="result-quiz-count">100</span>問
+        </p>
+        <div class="progress-bar"><div class="progress-bar-fill" id="result-progress-bar"></div></div>
+        <p class="result-percent" id="result-percent">0% COMPLETE</p>
+        <p class="result-message" id="result-message">全100問コンプリートを目指そう!</p>
+      </div>
+
+      <button id="btn-goto-gacha" class="btn btn-primary btn-large">ガチャを引く 🎰</button>
+    </section>
+
+    <!-- ============ GACHA ============ -->
+    <section id="screen-gacha" class="screen">
+      <div id="gacha-stage" class="gacha-stage">
+        <p class="gacha-caption" id="gacha-caption">25問おつかれさま!ガチャに挑戦しよう</p>
+
+        <div class="gacha-machine" id="gacha-machine">
+          <div class="gacha-machine-dome">
+            <span class="gacha-machine-dome-shine"></span>
+          </div>
+          <div class="gacha-machine-body">GACHA</div>
+          <div class="gacha-machine-lever"></div>
+        </div>
+
+        <div class="gacha-capsule" id="gacha-capsule" hidden>
+          <div class="gacha-capsule-top"></div>
+          <div class="gacha-capsule-bottom"></div>
+        </div>
+
+        <div class="gacha-sparkles" id="gacha-sparkles"></div>
+
+        <button id="btn-gacha-start" class="btn btn-primary btn-large">ガチャを回す!</button>
+      </div>
+
+      <div id="gacha-result" class="gacha-result" hidden>
+        <p class="gacha-result-banner" id="gacha-result-banner">★ NEW ITEM! ★</p>
+        <div class="gacha-result-icon" id="gacha-result-icon"></div>
+        <p class="gacha-result-name" id="gacha-result-name"></p>
+        <p class="gacha-result-memo" id="gacha-result-memo"></p>
+
+        <div class="gacha-result-actions" id="gacha-result-actions">
+          <button id="btn-share-save" class="btn btn-outline">画像を保存</button>
+          <button id="btn-share-x" class="btn btn-outline">Xでシェア</button>
+        </div>
+
+        <div class="gacha-result-nav">
+          <button id="btn-goto-collection-from-gacha" class="btn btn-outline">コレクションを見る</button>
+          <button id="btn-play-again" class="btn btn-primary">もう一度クイズに挑戦</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COLLECTION ============ -->
+    <section id="screen-collection" class="screen">
+      <h2 class="screen-title">MY COLLECTION</h2>
+
+      <div class="collection-block">
+        <h3 class="collection-block-title">📝 QUIZ</h3>
+        <p class="collection-numbers"><span id="col-quiz-cleared">0</span> / <span id="col-quiz-total">100</span></p>
+        <div class="progress-bar"><div class="progress-bar-fill" id="col-quiz-bar"></div></div>
+        <p class="collection-percent" id="col-quiz-percent">0% COMPLETE</p>
+        <p class="collection-hint" id="col-quiz-hint">全100問コンプリートを目指そう!</p>
+      </div>
+
+      <div class="collection-block">
+        <h3 class="collection-block-title">🎁 ITEMS</h3>
+        <p class="collection-numbers"><span id="col-item-count">0</span> / <span id="col-item-total">24</span></p>
+      </div>
+
+      <div class="collection-block">
+        <h3 class="collection-block-title">BINGO CARD</h3>
+        <div class="bingo-grid" id="bingo-grid"></div>
+        <button id="btn-save-bingo" class="btn btn-outline">ビンゴカードを保存</button>
+      </div>
+
+      <button id="btn-back-to-top" class="btn btn-primary">トップへ戻る</button>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p id="app-footer-text">CHISATO QUIZ GACHA</p>
+  </footer>
+
+  <div id="overlay-layer" class="overlay-layer" hidden>
+    <div id="overlay-content" class="overlay-content"></div>
+  </div>
+
+</div>
+
+<script src="js/data/site-config.js"></script>
+<script src="js/data/quiz-data.js"></script>
+<script src="js/data/item-data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/quiz-engine.js"></script>
+<script src="js/gacha-engine.js"></script>
+<script src="js/bingo-engine.js"></script>
+<script src="js/share.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+/* ============================================================
+   base.css
+   リセット・カラー変数・基本タイポグラフィ
+   ============================================================ */
+
+:root {
+  /* テーマカラー:黄緑(ライムグリーン)を基調 */
+  --color-bg-top: #f4fbe3;
+  --color-bg-bottom: #fff8df;
+  --color-primary: #8bc53f;
+  --color-primary-dark: #689f2c;
+  --color-primary-tint: #e9f7cf;
+  --color-accent: #ffc633;
+  --color-accent-dark: #d99a00;
+  --color-success: #35c37a;
+  --color-danger: #ff5a5a;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f6fbe8;
+  --color-text: #33361f;
+  --color-text-sub: #7c8560;
+  --color-border: #d9edb0;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-card: 0 6px 18px rgba(104, 159, 44, 0.18);
+  --shadow-btn: 0 4px 0 rgba(0, 0, 0, 0.12);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", "Segoe UI", sans-serif;
+  color: var(--color-text);
+  background: linear-gradient(180deg, var(--color-bg-top) 0%, var(--color-bg-bottom) 100%);
+  background-attachment: fixed;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* .btn等、display指定を持つクラスと hidden 属性が併用された場合でも
+   確実に非表示になるよう明示的に上書きする */
+[hidden] {
+  display: none !important;
+}
