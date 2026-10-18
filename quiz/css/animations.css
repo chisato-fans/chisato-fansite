@@ -148,15 +148,15 @@
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* ---- コンプリート系オーバーレイの絵文字揺れ ---- */
+/* ---- コンプリート系オーバーレイ:スタンプが軽く弾む ---- */
 
-.overlay-card .overlay-emoji {
-  animation: emojiBounce 0.9s ease infinite;
+.overlay-card .stamp-badge {
+  animation: stampBounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@keyframes emojiBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+@keyframes stampBounce {
+  0% { opacity: 0; transform: rotate(-7deg) scale(0.5); }
+  100% { opacity: 1; transform: rotate(-7deg) scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {

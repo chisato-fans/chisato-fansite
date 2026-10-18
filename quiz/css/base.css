@@ -1,29 +1,35 @@
 /* ============================================================
    base.css
-   リセット・カラー変数・基本タイポグラフィ
+   デザインコンセプト: 「縁日のガチャガチャ台 × 集めるスタンプ帳」
+   抹茶色(和紙に抹茶の緑)を基調に、ガチャの金とハンコの朱を差し色にする。
+   見出しには勢いのある角ゴシック(RocknRoll One)、本文には読みやすい
+   角ゴシック(Zen Kaku Gothic New)、数字のカウンターにはドット文字
+   (DotGothic16)を使い、ゲーム機のスコア表示らしさを出す。
    ============================================================ */
 
 :root {
-  /* テーマカラー:黄緑(ライムグリーン)を基調 */
-  --color-bg-top: #f4fbe3;
-  --color-bg-bottom: #fff8df;
-  --color-primary: #8bc53f;
-  --color-primary-dark: #689f2c;
-  --color-primary-tint: #e9f7cf;
-  --color-accent: #ffc633;
-  --color-accent-dark: #d99a00;
-  --color-success: #35c37a;
-  --color-danger: #ff5a5a;
-  --color-surface: #ffffff;
-  --color-surface-soft: #f6fbe8;
-  --color-text: #33361f;
-  --color-text-sub: #7c8560;
-  --color-border: #d9edb0;
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --shadow-card: 0 6px 18px rgba(104, 159, 44, 0.18);
-  --shadow-btn: 0 4px 0 rgba(0, 0, 0, 0.12);
+  /* ---- Color: 和紙 × 抹茶 × ハンコ朱 × ガチャ金 ---- */
+  --paper: #f6f2e4;
+  --paper-raised: #fffdf6;
+  --ink: #2c2a1e;
+  --ink-soft: #6f6a54;
+  --matcha: #5f7d35;
+  --matcha-deep: #3f5721;
+  --matcha-pale: #e3e8cd;
+  --stamp: #b9472f;
+  --stamp-pale: #f3ddd4;
+  --gold: #b8923f;
+  --gold-pale: #f1e3c2;
+  --line: #d8d0b8;
+
+  /* ---- Type ---- */
+  --font-display: "RocknRoll One", "Hiragino Sans", sans-serif;
+  --font-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-score: "DotGothic16", "Zen Kaku Gothic New", monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --shadow-card: 0 2px 0 var(--line), 0 10px 20px -14px rgba(44, 42, 30, 0.35);
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
@@ -39,16 +45,24 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", "Segoe UI", sans-serif;
-  color: var(--color-text);
-  background: linear-gradient(180deg, var(--color-bg-top) 0%, var(--color-bg-bottom) 100%);
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(44, 42, 30, 0.07) 1px, transparent 0);
+  background-size: 14px 14px;
   background-attachment: fixed;
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, p {
   margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  text-wrap: balance;
 }
 
 button {

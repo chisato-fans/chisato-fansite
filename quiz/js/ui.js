@@ -62,8 +62,8 @@ function buildQuizCompleteOverlay() {
     className: "overlay-quiz-complete",
     buttonId: "overlay-quiz-complete-close",
     html: `
-      <p class="overlay-emoji">🎉📝🎉</p>
-      <h3 class="overlay-title">QUIZ COMPLETE!</h3>
+      <p class="stamp-badge stamp-matcha">満点</p>
+      <h3 class="overlay-title">QUIZ COMPLETE</h3>
       <p class="overlay-text">クイズ全100問、コンプリートおめでとう!</p>
       <button id="overlay-quiz-complete-close" class="btn btn-primary">閉じる</button>
     `,
@@ -75,8 +75,8 @@ function buildBingoOverlay(lineCount) {
     className: "overlay-bingo",
     buttonId: "overlay-bingo-close",
     html: `
-      <p class="overlay-emoji">🎊🎯🎊</p>
-      <h3 class="overlay-title">BINGO!</h3>
+      <p class="stamp-badge stamp-gold">BINGO</p>
+      <h3 class="overlay-title">BINGO</h3>
       <p class="overlay-text">${lineCount > 1 ? `${lineCount}ライン同時に` : ""}ビンゴが揃いました!</p>
       <button id="overlay-bingo-close" class="btn btn-primary">閉じる</button>
     `,
@@ -88,8 +88,8 @@ function buildCollectionCompleteOverlay() {
     className: "overlay-collection-complete",
     buttonId: "overlay-collection-complete-close",
     html: `
-      <p class="overlay-emoji">🎁✨🎁</p>
-      <h3 class="overlay-title">COLLECTION COMPLETE!</h3>
+      <p class="stamp-badge stamp-gold">全種</p>
+      <h3 class="overlay-title">COLLECTION COMPLETE</h3>
       <p class="overlay-text">アイテム24種類、すべて集め終わりました!</p>
       <button id="overlay-collection-complete-close" class="btn btn-primary">閉じる</button>
     `,
@@ -101,8 +101,8 @@ function buildAllCompleteOverlay() {
     className: "overlay-all-complete",
     buttonId: "overlay-all-complete-close",
     html: `
-      <p class="overlay-emoji">🎉🏆🎉</p>
-      <h3 class="overlay-title">ALL COMPLETE!</h3>
+      <p class="stamp-badge stamp-stamp">全制覇</p>
+      <h3 class="overlay-title">ALL COMPLETE</h3>
       <p class="overlay-text">
         QUIZ 100 / 100<br>
         ITEMS 24 / 24
@@ -372,8 +372,8 @@ function revealGachaResult() {
   resultEl.hidden = false;
 
   if (draw.result === "allComplete") {
-    document.getElementById("gacha-result-banner").textContent = "🎉 ALL ITEMS COMPLETE 🎉";
-    document.getElementById("gacha-result-icon").textContent = "🏆";
+    document.getElementById("gacha-result-banner").textContent = "ALL ITEMS COMPLETE";
+    document.getElementById("gacha-result-icon").textContent = "全制覇";
     document.getElementById("gacha-result-name").textContent = "アイテムは24種類すべて集め終わっています!";
     document.getElementById("gacha-result-memo").textContent = "「最初から遊ぶ」で新しい周回にも挑戦できます。";
     document.getElementById("gacha-result-actions").hidden = true;
@@ -384,7 +384,7 @@ function revealGachaResult() {
   const item = draw.item;
   const gachaOutcome = commitGachaResult(gameState, item);
 
-  document.getElementById("gacha-result-banner").textContent = "★ NEW ITEM! ★";
+  document.getElementById("gacha-result-banner").textContent = "NEW ITEM";
   document.getElementById("gacha-result-icon").textContent = item.image ? "" : item.emoji;
   if (item.image) {
     document.getElementById("gacha-result-icon").style.backgroundImage = `url(${item.image})`;

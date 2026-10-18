@@ -7,18 +7,21 @@
 // Canvasはブラウザのcss変数を参照できないため、css/base.cssのテーマカラーと
 // 合わせた値をここで直接定義する。テーマカラーを変更する場合はここも更新する。
 const SHARE_COLORS = {
-  bgTop: "#f4fbe3",
-  bgBottom: "#fff8df",
-  primary: "#8bc53f",
-  primaryDark: "#689f2c",
-  primaryTint: "#e9f7cf",
-  accent: "#ffc633",
-  accentText: "#5a4300",
-  textMain: "#333333",
-  textSub: "#666666",
-  white: "#ffffff",
-  lockedBg: "#c9cdb8",
+  paper: "#f6f2e4",
+  paperRaised: "#fffdf6",
+  ink: "#2c2a1e",
+  inkSoft: "#6f6a54",
+  matcha: "#5f7d35",
+  matchaDeep: "#3f5721",
+  matchaPale: "#e3e8cd",
+  stamp: "#b9472f",
+  gold: "#b8923f",
+  goldPale: "#f1e3c2",
 };
+
+const SHARE_FONT_DISPLAY = '"RocknRoll One", "Hiragino Sans", sans-serif';
+const SHARE_FONT_BODY = '"Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif';
+const SHARE_FONT_SCORE = '"DotGothic16", "Zen Kaku Gothic New", monospace';
 
 function loadImageAsync(src) {
   return new Promise((resolve, reject) => {
@@ -66,7 +69,7 @@ async function drawItemIconOnCanvas(ctx, item, x, y, size) {
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.font = `${Math.floor(size * 0.75)}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
-  ctx.fillStyle = SHARE_COLORS.textMain;
+  ctx.fillStyle = SHARE_COLORS.ink;
   ctx.fillText(item.emoji || "🎁", x + size / 2, y + size / 2 + size * 0.05);
 }
 
@@ -77,47 +80,48 @@ async function generateItemShareCanvas(item) {
   canvas.height = 1080;
   const ctx = canvas.getContext("2d");
 
-  const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
-  grad.addColorStop(0, SHARE_COLORS.bgTop);
-  grad.addColorStop(1, SHARE_COLORS.bgBottom);
-  ctx.fillStyle = grad;
+  ctx.fillStyle = SHARE_COLORS.paper;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.strokeStyle = SHARE_COLORS.primary;
-  ctx.lineWidth = 14;
-  ctx.strokeRect(28, 28, canvas.width - 56, canvas.height - 56);
+  ctx.strokeStyle = SHARE_COLORS.ink;
+  ctx.lineWidth = 6;
+  ctx.strokeRect(30, 30, canvas.width - 60, canvas.height - 60);
 
   ctx.textAlign = "center";
-  ctx.fillStyle = SHARE_COLORS.primaryDark;
-  ctx.font = "bold 46px sans-serif";
+  ctx.fillStyle = SHARE_COLORS.matchaDeep;
+  ctx.font = `46px ${SHARE_FONT_DISPLAY}`;
   ctx.fillText(SITE_CONFIG.siteName, canvas.width / 2, 130);
 
-  ctx.fillStyle = SHARE_COLORS.accent;
-  ctx.fillRect(canvas.width / 2 - 230, 175, 460, 84);
-  ctx.fillStyle = SHARE_COLORS.accentText;
-  ctx.font = "bold 40px sans-serif";
-  ctx.fillText("★ NEW ITEM! ★", canvas.width / 2, 230);
+  ctx.save();
+  ctx.translate(canvas.width / 2, 215);
+  ctx.rotate((-2 * Math.PI) / 180);
+  ctx.fillStyle = SHARE_COLORS.stamp;
+  ctx.fillRect(-150, -36, 300, 72);
+  ctx.fillStyle = SHARE_COLORS.paperRaised;
+  ctx.font = `30px ${SHARE_FONT_DISPLAY}`;
+  ctx.fillText("NEW ITEM", 0, 10);
+  ctx.restore();
 
-  ctx.fillStyle = SHARE_COLORS.white;
+  ctx.fillStyle = SHARE_COLORS.paperRaised;
   ctx.beginPath();
   ctx.arc(canvas.width / 2, 480, 210, 0, Math.PI * 2);
   ctx.fill();
-  ctx.strokeStyle = SHARE_COLORS.primaryTint;
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = SHARE_COLORS.ink;
   ctx.stroke();
 
   await drawItemIconOnCanvas(ctx, item, canvas.width / 2 - 140, 480 - 140, 280);
 
-  ctx.fillStyle = SHARE_COLORS.textMain;
-  ctx.font = "bold 52px sans-serif";
+  ctx.fillStyle = SHARE_COLORS.ink;
+  ctx.font = `900 34px ${SHARE_FONT_BODY}`;
   ctx.fillText(item.name, canvas.width / 2, 770);
 
-  ctx.fillStyle = SHARE_COLORS.textSub;
-  ctx.font = "28px sans-serif";
+  ctx.fillStyle = SHARE_COLORS.inkSoft;
+  ctx.font = `28px ${SHARE_FONT_BODY}`;
   drawWrappedText(ctx, item.memo || "", canvas.width / 2, 830, 820, 38);
 
-  ctx.fillStyle = SHARE_COLORS.primaryDark;
-  ctx.font = "bold 26px sans-serif";
+  ctx.fillStyle = SHARE_COLORS.matchaDeep;
+  ctx.font = `bold 24px ${SHARE_FONT_BODY}`;
   ctx.fillText(SITE_CONFIG.siteUrl || SITE_CONFIG.siteName, canvas.width / 2, 1010);
 
   return canvas;
@@ -130,23 +134,20 @@ async function generateBingoShareCanvas(state) {
   canvas.height = 1400;
   const ctx = canvas.getContext("2d");
 
-  const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
-  grad.addColorStop(0, SHARE_COLORS.bgTop);
-  grad.addColorStop(1, SHARE_COLORS.bgBottom);
-  ctx.fillStyle = grad;
+  ctx.fillStyle = SHARE_COLORS.paper;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.strokeStyle = SHARE_COLORS.primary;
-  ctx.lineWidth = 14;
-  ctx.strokeRect(28, 28, canvas.width - 56, canvas.height - 56);
+  ctx.strokeStyle = SHARE_COLORS.ink;
+  ctx.lineWidth = 6;
+  ctx.strokeRect(30, 30, canvas.width - 60, canvas.height - 60);
 
   ctx.textAlign = "center";
-  ctx.fillStyle = SHARE_COLORS.primaryDark;
-  ctx.font = "bold 46px sans-serif";
+  ctx.fillStyle = SHARE_COLORS.matchaDeep;
+  ctx.font = `46px ${SHARE_FONT_DISPLAY}`;
   ctx.fillText(SITE_CONFIG.siteName, canvas.width / 2, 110);
 
-  ctx.fillStyle = SHARE_COLORS.textSub;
-  ctx.font = "28px sans-serif";
+  ctx.fillStyle = SHARE_COLORS.inkSoft;
+  ctx.font = `26px ${SHARE_FONT_BODY}`;
   ctx.fillText("MY COLLECTION BINGO CARD", canvas.width / 2, 155);
 
   const gridSize = 5;
@@ -163,25 +164,28 @@ async function generateBingoShareCanvas(state) {
       const x = gridLeft + col * cellSize;
       const y = gridTop + row * cellSize;
 
-      ctx.fillStyle = cell.isFree ? "#ffe08a" : cell.opened ? SHARE_COLORS.white : SHARE_COLORS.primaryTint;
+      ctx.fillStyle = cell.isFree ? SHARE_COLORS.goldPale : cell.opened ? SHARE_COLORS.paperRaised : SHARE_COLORS.matchaPale;
       ctx.fillRect(x + 4, y + 4, cellSize - 8, cellSize - 8);
-      ctx.strokeStyle = SHARE_COLORS.primary;
-      ctx.lineWidth = 3;
+      ctx.strokeStyle = cell.isFree ? SHARE_COLORS.gold : SHARE_COLORS.ink;
+      ctx.lineWidth = 2;
       ctx.strokeRect(x + 4, y + 4, cellSize - 8, cellSize - 8);
 
       ctx.font = `${Math.floor(cellSize * 0.45)}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.fillStyle = SHARE_COLORS.textMain;
+      ctx.fillStyle = SHARE_COLORS.ink;
 
       if (cell.isFree) {
-        ctx.font = `bold ${Math.floor(cellSize * 0.22)}px sans-serif`;
+        ctx.font = `${Math.floor(cellSize * 0.2)}px ${SHARE_FONT_DISPLAY}`;
+        ctx.fillStyle = "#6b5220";
         ctx.fillText("FREE", x + cellSize / 2, y + cellSize / 2);
       } else if (cell.opened) {
         await drawItemIconOnCanvas(ctx, cell.item, x + cellSize * 0.15, y + cellSize * 0.1, cellSize * 0.7);
       } else {
-        ctx.fillStyle = SHARE_COLORS.lockedBg;
+        ctx.fillStyle = SHARE_COLORS.inkSoft;
+        ctx.globalAlpha = 0.5;
         ctx.fillText("🔒", x + cellSize / 2, y + cellSize / 2);
+        ctx.globalAlpha = 1;
       }
     }
   }
@@ -190,15 +194,15 @@ async function generateBingoShareCanvas(state) {
   const { totalCleared, totalQuizCount, percent } = getQuizProgress(state);
 
   ctx.textAlign = "center";
-  ctx.fillStyle = SHARE_COLORS.textMain;
-  ctx.font = "bold 40px sans-serif";
-  ctx.fillText(`🎁 ITEMS  ${totalAcquired} / ${totalItemCount}`, canvas.width / 2, gridTop + gridPixel + 70);
-  ctx.font = "30px sans-serif";
-  ctx.fillStyle = SHARE_COLORS.textSub;
-  ctx.fillText(`📝 QUIZ  ${totalCleared} / ${totalQuizCount}(${percent}% COMPLETE)`, canvas.width / 2, gridTop + gridPixel + 120);
+  ctx.fillStyle = SHARE_COLORS.matchaDeep;
+  ctx.font = `36px ${SHARE_FONT_SCORE}`;
+  ctx.fillText(`ITEMS  ${totalAcquired} / ${totalItemCount}`, canvas.width / 2, gridTop + gridPixel + 70);
+  ctx.font = `28px ${SHARE_FONT_SCORE}`;
+  ctx.fillStyle = SHARE_COLORS.inkSoft;
+  ctx.fillText(`QUIZ  ${totalCleared} / ${totalQuizCount} (${percent}% COMPLETE)`, canvas.width / 2, gridTop + gridPixel + 120);
 
-  ctx.fillStyle = SHARE_COLORS.primaryDark;
-  ctx.font = "bold 26px sans-serif";
+  ctx.fillStyle = SHARE_COLORS.matchaDeep;
+  ctx.font = `bold 24px ${SHARE_FONT_BODY}`;
   ctx.fillText(SITE_CONFIG.siteUrl || SITE_CONFIG.siteName, canvas.width / 2, canvas.height - 50);
 
   return canvas;

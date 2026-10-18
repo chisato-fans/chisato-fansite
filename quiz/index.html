@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CHISATO QUIZ GACHA</title>
 <meta name="description" content="小林千悟(CHISATO)ファン向けクイズ&ガチャゲーム。クイズに挑戦してアイテムを集め、ビンゴコンプリートを目指そう!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=RocknRoll+One&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=DotGothic16&display=swap">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/layout.css">
@@ -14,7 +17,8 @@
 <div id="app">
 
   <header class="app-header">
-    <p class="app-header-eyebrow">FAN QUIZ &amp; GACHA GAME</p>
+    <div class="hanko" aria-hidden="true">千悟</div>
+    <p class="app-header-eyebrow">小林千悟 ファンクイズ&amp;ガチャ</p>
     <h1 class="app-title">CHISATO QUIZ GACHA</h1>
   </header>
 
@@ -23,7 +27,7 @@
     <!-- ============ TOP ============ -->
     <section id="screen-top" class="screen">
       <div class="top-hero">
-        <div class="top-hero-emoji">🎤✨🎁</div>
+        <p class="top-hero-label">縁日クイズ &amp; ガチャガチャ</p>
         <p class="top-subtitle" id="top-subtitle">小林千悟(CHISATO)クイズに挑戦して、アイテムを集めよう!</p>
       </div>
 
@@ -31,14 +35,14 @@
         <h3 class="progress-card-title">MY PROGRESS</h3>
 
         <div class="progress-row">
-          <span class="progress-label">📝 QUIZ</span>
+          <span class="progress-label">QUIZ</span>
           <span class="progress-value"><span id="top-quiz-value">0 / 100</span></span>
         </div>
         <div class="progress-bar"><div class="progress-bar-fill" id="top-quiz-bar"></div></div>
         <p class="progress-sub" id="top-quiz-percent">0% COMPLETE</p>
 
         <div class="progress-row progress-row-spaced">
-          <span class="progress-label">🎁 ITEMS</span>
+          <span class="progress-label">ITEMS</span>
           <span class="progress-value" id="top-item-value">0 / 24</span>
         </div>
       </div>
@@ -92,7 +96,7 @@
         <p class="result-message" id="result-message">全100問コンプリートを目指そう!</p>
       </div>
 
-      <button id="btn-goto-gacha" class="btn btn-primary btn-large">ガチャを引く 🎰</button>
+      <button id="btn-goto-gacha" class="btn btn-primary btn-large">ガチャを回しに行く</button>
     </section>
 
     <!-- ============ GACHA ============ -->
@@ -119,7 +123,7 @@
       </div>
 
       <div id="gacha-result" class="gacha-result" hidden>
-        <p class="gacha-result-banner" id="gacha-result-banner">★ NEW ITEM! ★</p>
+        <p class="gacha-result-banner" id="gacha-result-banner">NEW ITEM</p>
         <div class="gacha-result-icon" id="gacha-result-icon"></div>
         <p class="gacha-result-name" id="gacha-result-name"></p>
         <p class="gacha-result-memo" id="gacha-result-memo"></p>
@@ -141,7 +145,7 @@
       <h2 class="screen-title">MY COLLECTION</h2>
 
       <div class="collection-block">
-        <h3 class="collection-block-title">📝 QUIZ</h3>
+        <h3 class="collection-block-title">QUIZ</h3>
         <p class="collection-numbers"><span id="col-quiz-cleared">0</span> / <span id="col-quiz-total">100</span></p>
         <div class="progress-bar"><div class="progress-bar-fill" id="col-quiz-bar"></div></div>
         <p class="collection-percent" id="col-quiz-percent">0% COMPLETE</p>
@@ -149,7 +153,7 @@
       </div>
 
       <div class="collection-block">
-        <h3 class="collection-block-title">🎁 ITEMS</h3>
+        <h3 class="collection-block-title">ITEMS</h3>
         <p class="collection-numbers"><span id="col-item-count">0</span> / <span id="col-item-total">24</span></p>
       </div>
 
