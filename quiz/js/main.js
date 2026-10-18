@@ -5,4 +5,5 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   initApp();
+  initButtonSounds();
 });

@@ -141,9 +141,7 @@ function renderTopScreen() {
   const hasPlayed = hasExistingProgress(gameState);
   document.getElementById("btn-continue").hidden = !hasPlayed;
   document.getElementById("top-progress").hidden = !hasPlayed;
-  document.getElementById("top-subtitle").textContent = hasPlayed
-    ? "小林千悟(CHISATO)クイズに挑戦して、アイテムを集めよう!"
-    : "小林千悟(CHISATO)クイズに挑戦して、アイテムを集めよう!はじめてのプレイもようこそ!";
+  document.getElementById("top-subtitle").textContent = "小林千悟くんに関するクイズに挑戦して、アイテムを集めよう!";
 
   if (hasPlayed) {
     const quizProgress = getQuizProgress(gameState);
@@ -222,6 +220,7 @@ function handleChoiceSelected(choiceKey) {
   buttons.forEach((b) => (b.disabled = true));
 
   const { correct, question } = answerCurrentQuestion(quizSession, choiceKey);
+  playSound(correct ? "correct" : "incorrect");
 
   buttons.forEach((b) => {
     const c = question.choices.find((c) => c.key === b.dataset.key);
@@ -358,11 +357,11 @@ function playGachaAnimation(onComplete) {
           }
           caption.textContent = "✨✨✨";
 
-          setTimeout(onComplete, 500);
-        }, 450);
-      }, 550);
-    }, 550);
-  }, 700);
+          setTimeout(onComplete, 800);
+        }, 700);
+      }, 850);
+    }, 850);
+  }, 1100);
 }
 
 function revealGachaResult() {
@@ -371,9 +370,13 @@ function revealGachaResult() {
   const resultEl = document.getElementById("gacha-result");
   resultEl.hidden = false;
 
+  const iconEl = document.getElementById("gacha-result-icon");
+
   if (draw.result === "allComplete") {
     document.getElementById("gacha-result-banner").textContent = "ALL ITEMS COMPLETE";
-    document.getElementById("gacha-result-icon").textContent = "全制覇";
+    iconEl.textContent = "全制覇";
+    iconEl.classList.add("is-text");
+    iconEl.style.backgroundImage = "";
     document.getElementById("gacha-result-name").textContent = "アイテムは24種類すべて集め終わっています!";
     document.getElementById("gacha-result-memo").textContent = "「最初から遊ぶ」で新しい周回にも挑戦できます。";
     document.getElementById("gacha-result-actions").hidden = true;
@@ -385,11 +388,12 @@ function revealGachaResult() {
   const gachaOutcome = commitGachaResult(gameState, item);
 
   document.getElementById("gacha-result-banner").textContent = "NEW ITEM";
-  document.getElementById("gacha-result-icon").textContent = item.image ? "" : item.emoji;
+  iconEl.classList.remove("is-text");
+  iconEl.textContent = item.image ? "" : item.emoji;
   if (item.image) {
-    document.getElementById("gacha-result-icon").style.backgroundImage = `url(${item.image})`;
+    iconEl.style.backgroundImage = `url(${item.image})`;
   } else {
-    document.getElementById("gacha-result-icon").style.backgroundImage = "";
+    iconEl.style.backgroundImage = "";
   }
   document.getElementById("gacha-result-name").textContent = item.name;
   document.getElementById("gacha-result-memo").textContent = item.memo || "";
@@ -466,7 +470,7 @@ function renderBingoGrid() {
 
 function initApp() {
   gameState = loadState();
-  document.getElementById("app-footer-text").textContent = SITE_CONFIG.siteName;
+  document.getElementById("app-footer-text").textContent = SITE_CONFIG.footerCopyright;
   document.getElementById("col-quiz-total").textContent = String(QUIZ_DATA.length);
   document.getElementById("col-item-total").textContent = String(ITEM_DATA.length);
 

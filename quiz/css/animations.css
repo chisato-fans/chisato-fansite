@@ -54,7 +54,7 @@
 }
 
 .gacha-machine.is-shaking {
-  animation: machineShake 0.6s ease;
+  animation: machineShake 0.9s ease;
 }
 
 /* ---- ガチャ:カプセルが出てくる ---- */
@@ -65,7 +65,7 @@
 }
 
 .gacha-capsule.is-emerging {
-  animation: capsuleEmerge 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: capsuleEmerge 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 /* ---- ガチャ:カプセルが中央へ ---- */
@@ -77,7 +77,7 @@
 }
 
 .gacha-capsule.is-emerging.is-centered {
-  animation: capsuleCenter 0.55s ease forwards;
+  animation: capsuleCenter 0.8s ease forwards;
 }
 
 /* ---- ガチャ:カプセルが開く ---- */
@@ -93,11 +93,11 @@
 }
 
 .gacha-capsule.is-opening .gacha-capsule-top {
-  animation: capsuleOpenTop 0.45s ease forwards;
+  animation: capsuleOpenTop 0.65s ease forwards;
 }
 
 .gacha-capsule.is-opening .gacha-capsule-bottom {
-  animation: capsuleOpenBottom 0.45s ease forwards;
+  animation: capsuleOpenBottom 0.65s ease forwards;
 }
 
 /* ---- ガチャ:キラキラ演出 ---- */
