@@ -180,8 +180,6 @@ function handleContinueClicked() {
 
 // ---------- QUIZ画面 ----------
 
-const DIFFICULTY_LABELS = { beginner: "初級", intermediate: "中級", advanced: "上級" };
-
 function beginQuizFlow() {
   quizSession = createQuizSession();
   showScreen("screen-quiz");
@@ -194,7 +192,6 @@ function renderQuizQuestion() {
 
   document.getElementById("quiz-index").textContent = String(quizSession.currentIndex + 1);
   document.getElementById("quiz-total").textContent = String(total);
-  document.getElementById("quiz-difficulty-badge").textContent = DIFFICULTY_LABELS[question.difficulty] || question.difficulty;
   document.getElementById("quiz-progress-bar-fill").style.width = `${(quizSession.currentIndex / total) * 100}%`;
   document.getElementById("quiz-question-text").textContent = question.question;
 

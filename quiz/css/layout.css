@@ -164,30 +164,18 @@
 /* ---- QUIZ ---- */
 
 .quiz-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 8px;
 }
 
 .quiz-progress-text {
+  text-align: center;
   font-family: var(--font-score);
   font-size: 1.05rem;
   color: var(--ink);
   font-variant-numeric: tabular-nums;
-}
-
-.quiz-difficulty-badge {
-  background: var(--gold-pale);
-  border: 1.5px solid var(--gold);
-  color: #6b5220;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  padding: 4px 10px;
-  border-radius: var(--radius-sm);
-  transform: rotate(-2deg);
 }
 
 .quiz-progress-bar {
