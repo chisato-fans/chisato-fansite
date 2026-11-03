@@ -1000,7 +1000,7 @@ const QUIZ_DATA = [
   {
     id: "q082",
     difficulty: "advanced",
-    question: "Amazon Makeupにて千悟くんに使っていたリップモンスターの色はどれ？（https://youtu.be/w4lD_mZzTEg）",
+    question: "Amazon Makeupにて千悟くんに使っていたリップモンスターの色はどれ？",
     correctAnswer: "05　ダークフィグ",
     wrongAnswers: [
       "03 陽炎",
