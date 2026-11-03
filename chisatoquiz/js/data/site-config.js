@@ -10,7 +10,7 @@ const SITE_CONFIG = {
   // トップ画面などに表示するサブタイトル
   siteSubtitle: "小林千悟 ファンクイズ&ガチャ",
   // 公開後のサイトURL(SNSシェア文言に使用。未公開の間は空文字のままでOK)
-  siteUrl: "",
+  siteUrl: "https://chisato-fansite.vercel.app/chisatoquiz",
   // Xでシェアするときに文末につけるハッシュタグ(#は不要、そのまま単語だけ)
   shareHashtags: ["小林千悟", "CHISATOQUIZGACHA"],
   // フッターに表示するコピーライト表記
