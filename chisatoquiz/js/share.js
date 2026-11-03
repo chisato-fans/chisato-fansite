@@ -17,11 +17,52 @@ const SHARE_COLORS = {
   stamp: "#b9472f",
   gold: "#b8923f",
   goldPale: "#f1e3c2",
+  line: "#d8d0b8",
 };
 
 const SHARE_FONT_DISPLAY = '"RocknRoll One", "Hiragino Sans", sans-serif';
 const SHARE_FONT_BODY = '"Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif';
 const SHARE_FONT_SCORE = '"DotGothic16", "Zen Kaku Gothic New", monospace';
+
+/** 角丸四角形のパスを作る(ビンゴマスの描画で使用)。 */
+function roundRectPath(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+/** アイテム名ラベルを中央揃え・最大2行で描画する(ビンゴマスの描画で使用)。 */
+function drawCellLabel(ctx, text, centerX, startY, maxWidth, lineHeight) {
+  ctx.textAlign = "center";
+  ctx.textBaseline = "top";
+  const chars = Array.from(text);
+  const lines = [];
+  let line = "";
+  chars.forEach((ch) => {
+    const testLine = line + ch;
+    if (ctx.measureText(testLine).width > maxWidth && line !== "") {
+      lines.push(line);
+      line = ch;
+    } else {
+      line = testLine;
+    }
+  });
+  if (line) lines.push(line);
+
+  const shown = lines.slice(0, 2);
+  if (lines.length > 2) {
+    let last = shown[1];
+    while (last.length > 1 && ctx.measureText(`${last}…`).width > maxWidth) {
+      last = last.slice(0, -1);
+    }
+    shown[1] = `${last}…`;
+  }
+  shown.forEach((l, i) => ctx.fillText(l, centerX, startY + i * lineHeight));
+}
 
 function loadImageAsync(src) {
   return new Promise((resolve, reject) => {
@@ -109,26 +150,55 @@ async function generateBingoShareCanvas(state) {
       const cell = cardView[row * gridSize + col];
       const x = gridLeft + col * cellSize;
       const y = gridTop + row * cellSize;
+      const cellX = x + 4;
+      const cellY = y + 4;
+      const cellW = cellSize - 8;
+      const cellH = cellSize - 8;
+      const cellRadius = cellSize * 0.07;
 
-      ctx.fillStyle = cell.isFree ? SHARE_COLORS.goldPale : cell.opened ? SHARE_COLORS.paperRaised : SHARE_COLORS.matchaPale;
-      ctx.fillRect(x + 4, y + 4, cellSize - 8, cellSize - 8);
-      ctx.strokeStyle = cell.isFree ? SHARE_COLORS.gold : SHARE_COLORS.ink;
+      let fill;
+      let stroke;
+      let dashed = false;
+      if (cell.isFree) {
+        fill = SHARE_COLORS.goldPale;
+        stroke = SHARE_COLORS.gold;
+      } else if (cell.opened) {
+        fill = SHARE_COLORS.paperRaised;
+        stroke = SHARE_COLORS.matcha;
+      } else {
+        fill = SHARE_COLORS.paper;
+        stroke = SHARE_COLORS.line;
+        dashed = true;
+      }
+
+      roundRectPath(ctx, cellX, cellY, cellW, cellH, cellRadius);
+      ctx.fillStyle = fill;
+      ctx.fill();
       ctx.lineWidth = 2;
-      ctx.strokeRect(x + 4, y + 4, cellSize - 8, cellSize - 8);
-
-      ctx.font = `${Math.floor(cellSize * 0.45)}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillStyle = SHARE_COLORS.ink;
+      ctx.strokeStyle = stroke;
+      if (dashed) ctx.setLineDash([6, 5]);
+      ctx.stroke();
+      ctx.setLineDash([]);
 
       if (cell.isFree) {
-        ctx.font = `${Math.floor(cellSize * 0.2)}px ${SHARE_FONT_DISPLAY}`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.font = `${Math.floor(cellSize * 0.17)}px ${SHARE_FONT_DISPLAY}`;
         ctx.fillStyle = "#6b5220";
         ctx.fillText("FREE", x + cellSize / 2, y + cellSize / 2);
       } else if (cell.opened) {
-        await drawItemIconOnCanvas(ctx, cell.item, x + cellSize * 0.15, y + cellSize * 0.1, cellSize * 0.7);
+        const iconSize = cellSize * 0.56;
+        const iconX = x + (cellSize - iconSize) / 2;
+        const iconY = y + cellSize * 0.08;
+        await drawItemIconOnCanvas(ctx, cell.item, iconX, iconY, iconSize);
+        ctx.font = `${Math.floor(cellSize * 0.09)}px ${SHARE_FONT_BODY}`;
+        ctx.fillStyle = SHARE_COLORS.inkSoft;
+        drawCellLabel(ctx, cell.item.name, x + cellSize / 2, iconY + iconSize + cellSize * 0.06, cellSize * 0.92, cellSize * 0.11);
       } else {
-        await drawLockedIconOnCanvas(ctx, cell.item, x + cellSize * 0.15, y + cellSize * 0.1, cellSize * 0.7);
+        const iconSize = cellSize * 0.56;
+        const iconX = x + (cellSize - iconSize) / 2;
+        const iconY = y + (cellSize - iconSize) / 2;
+        await drawLockedIconOnCanvas(ctx, cell.item, iconX, iconY, iconSize);
       }
     }
   }
@@ -164,6 +234,10 @@ function downloadCanvasAsPng(canvas, filename) {
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 2000);
   }, "image/png");
+}
+
+function canvasToBlobAsync(canvas) {
+  return new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
 }
 
 /** 獲得アイテムのシェア用テキストを組み立てる。 */
@@ -202,8 +276,31 @@ function shareItemToSns(item, correctCount, totalQuestions) {
   openXShareIntent(text);
 }
 
-/** 「ビンゴカードを保存」ボタン(コレクション画面)から呼ばれる処理。 */
+/**
+ * 「ビンゴカードを保存」ボタン(コレクション画面)から呼ばれる処理。
+ * ファイル共有に対応した環境(主にスマートフォン)ではnavigator.share()を使い、
+ * OS標準の共有シートから「画像を保存」でカメラロールに直接保存できるようにする。
+ * 非対応環境では、従来通りブラウザのダウンロード機能にフォールバックする。
+ */
 async function saveBingoCardImage(state) {
   const canvas = await generateBingoShareCanvas(state);
-  downloadCanvasAsPng(canvas, "chisato-quiz-gacha_bingo-card.png");
+  const filename = "chisato-quiz-gacha_bingo-card.png";
+
+  if (navigator.canShare) {
+    try {
+      const blob = await canvasToBlobAsync(canvas);
+      if (blob) {
+        const file = new File([blob], filename, { type: "image/png" });
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({ files: [file] });
+          return;
+        }
+      }
+    } catch (e) {
+      if (e && e.name === "AbortError") return; // ユーザーがキャンセルした
+      // それ以外のエラーはフォールバックへ
+    }
+  }
+
+  downloadCanvasAsPng(canvas, filename);
 }
