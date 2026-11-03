@@ -73,6 +73,29 @@ async function drawItemIconOnCanvas(ctx, item, x, y, size) {
   ctx.fillText(item.emoji || "🎁", x + size / 2, y + size / 2 + size * 0.05);
 }
 
+/** 未獲得マス用に、アイテムのシルエット画像(無ければ🔒)をCanvasに描画する。 */
+async function drawLockedIconOnCanvas(ctx, item, x, y, size) {
+  if (item.silhouette) {
+    try {
+      const img = await loadImageAsync(item.silhouette);
+      ctx.save();
+      ctx.filter = "brightness(0) opacity(0.4)";
+      ctx.drawImage(img, x, y, size, size);
+      ctx.restore();
+      return;
+    } catch (e) {
+      // 画像読み込みに失敗した場合は🔒表示にフォールバック
+    }
+  }
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.font = `${Math.floor(size * 0.75)}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
+  ctx.fillStyle = SHARE_COLORS.inkSoft;
+  ctx.globalAlpha = 0.5;
+  ctx.fillText("🔒", x + size / 2, y + size / 2 + size * 0.05);
+  ctx.globalAlpha = 1;
+}
+
 /** ガチャ結果のSNSシェア用画像(1080x1080)を生成する。 */
 async function generateItemShareCanvas(item) {
   const canvas = document.createElement("canvas");
@@ -182,10 +205,7 @@ async function generateBingoShareCanvas(state) {
       } else if (cell.opened) {
         await drawItemIconOnCanvas(ctx, cell.item, x + cellSize * 0.15, y + cellSize * 0.1, cellSize * 0.7);
       } else {
-        ctx.fillStyle = SHARE_COLORS.inkSoft;
-        ctx.globalAlpha = 0.5;
-        ctx.fillText("🔒", x + cellSize / 2, y + cellSize / 2);
-        ctx.globalAlpha = 1;
+        await drawLockedIconOnCanvas(ctx, cell.item, x + cellSize * 0.15, y + cellSize * 0.1, cellSize * 0.7);
       }
     }
   }

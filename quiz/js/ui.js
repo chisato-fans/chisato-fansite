@@ -461,7 +461,9 @@ function renderBingoGrid() {
       cellEl.innerHTML = `${iconHtml}<span class="bingo-cell-label">${cell.item.name}</span>`;
     } else {
       cellEl.classList.add("is-locked");
-      cellEl.innerHTML = `<span class="bingo-cell-icon bingo-cell-emoji">🔒</span>`;
+      cellEl.innerHTML = cell.item.silhouette
+        ? `<span class="bingo-cell-icon bingo-cell-silhouette" style="background-image:url(${cell.item.silhouette})"></span>`
+        : `<span class="bingo-cell-icon bingo-cell-emoji">🔒</span>`;
     }
     grid.appendChild(cellEl);
   });

@@ -186,9 +186,10 @@
 
 .quiz-progress-bar {
   width: 100%;
-  height: 6px;
-  border-radius: 2px;
+  height: 12px;
+  border-radius: 3px;
   background: var(--matcha-pale);
+  border: 1px solid var(--line);
   overflow: hidden;
   margin-bottom: 18px;
 }
@@ -584,6 +585,9 @@
 .gacha-result-actions .btn,
 .gacha-result-nav .btn {
   flex: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 0.86rem;
 }
 
 /* ---- COLLECTION ---- */
@@ -675,6 +679,10 @@
 .bingo-cell-emoji {
   font-size: 1.3rem;
   opacity: 0.6;
+}
+
+.bingo-cell-silhouette {
+  filter: brightness(0) opacity(0.4);
 }
 
 .bingo-cell.is-opened .bingo-cell-emoji {
