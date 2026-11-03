@@ -141,7 +141,7 @@ function renderTopScreen() {
   const hasPlayed = hasExistingProgress(gameState);
   document.getElementById("btn-continue").hidden = !hasPlayed;
   document.getElementById("top-progress").hidden = !hasPlayed;
-  document.getElementById("top-subtitle").textContent = "小林千悟くんに関するクイズに挑戦して、アイテムを集めよう!";
+  document.getElementById("top-subtitle").innerHTML = "小林千悟くんに関するクイズに挑戦して、<br>アイテムを集めよう!";
 
   if (hasPlayed) {
     const quizProgress = getQuizProgress(gameState);
@@ -261,9 +261,11 @@ function handleQuizQuitClicked() {
 // ---------- RESULT画面 ----------
 
 let pendingPostResultOverlays = [];
+let lastQuizResult = null;
 
 function finishQuiz() {
   const result = commitQuizSessionResult(gameState, quizSession);
+  lastQuizResult = result;
   renderResultScreen(result);
 
   pendingPostResultOverlays = [];
@@ -395,8 +397,10 @@ function revealGachaResult() {
   document.getElementById("gacha-result-name").textContent = item.name;
   document.getElementById("gacha-result-memo").textContent = item.memo || "";
 
+  const correctCount = lastQuizResult ? lastQuizResult.correctCount : 0;
+  const totalQuestions = lastQuizResult ? lastQuizResult.totalQuestions : 25;
   document.getElementById("btn-share-save").onclick = () => saveItemImage(item);
-  document.getElementById("btn-share-x").onclick = () => shareItemToSns(item);
+  document.getElementById("btn-share-x").onclick = () => shareItemToSns(item, correctCount, totalQuestions);
 
   // 仕様確認事項4: アイテム獲得直後にビンゴ判定 → 演出はガチャ画面上でこの場に表示する
   const newBingoLines = getNewlyAchievedBingoLines(gameState);

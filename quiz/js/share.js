@@ -228,9 +228,16 @@ function canvasToBlobAsync(canvas) {
 }
 
 /** 獲得アイテムのシェア用テキストを組み立てる。 */
-function buildItemShareText(item) {
+function buildItemShareText(item, correctCount, totalQuestions) {
   const tags = SITE_CONFIG.shareHashtags.map((t) => `#${t}`).join(" ");
-  return `「${SITE_CONFIG.siteName}」で「${item.name}」をゲット!🎉\n${tags}`;
+  const lines = [
+    `${correctCount}/${totalQuestions}問正解!「${SITE_CONFIG.siteName}」で「${item.name}」をゲット!🎉`,
+    tags,
+  ];
+  if (SITE_CONFIG.siteUrl) {
+    lines.push(SITE_CONFIG.siteUrl);
+  }
+  return lines.join("\n");
 }
 
 /** Xの投稿画面(intent)をテキスト・URL付きで開く。画像は自動添付できない仕様のため含まれない。 */
@@ -248,11 +255,10 @@ function openXShareIntent(text, url) {
  * 2. 非対応環境では、画像をダウンロードしつつXの投稿画面を開く
  *    (「画像を保存してSNSに投稿」の導線。画像はユーザーが手動で添付する)。
  */
-async function shareItemToSns(item) {
+async function shareItemToSns(item, correctCount, totalQuestions) {
   const canvas = await generateItemShareCanvas(item);
   const filename = `chisato-quiz-gacha_${item.id}.png`;
-  const text = buildItemShareText(item);
-  const url = SITE_CONFIG.siteUrl || undefined;
+  const text = buildItemShareText(item, correctCount, totalQuestions);
 
   const blob = await canvasToBlobAsync(canvas);
   if (!blob) return;
@@ -261,7 +267,7 @@ async function shareItemToSns(item) {
     const file = new File([blob], filename, { type: "image/png" });
     if (navigator.canShare({ files: [file] })) {
       try {
-        await navigator.share({ files: [file], text, url });
+        await navigator.share({ files: [file], text });
         return;
       } catch (e) {
         if (e && e.name === "AbortError") return; // ユーザーがキャンセルした
@@ -271,7 +277,7 @@ async function shareItemToSns(item) {
   }
 
   downloadCanvasAsPng(canvas, filename);
-  openXShareIntent(text, url);
+  openXShareIntent(text);
 }
 
 /** 「画像を保存」ボタン(ガチャ結果画面)から呼ばれる処理。 */

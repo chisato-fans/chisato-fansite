@@ -12,7 +12,7 @@ const SITE_CONFIG = {
   // 公開後のサイトURL(SNSシェア文言に使用。未公開の間は空文字のままでOK)
   siteUrl: "",
   // Xでシェアするときに文末につけるハッシュタグ(#は不要、そのまま単語だけ)
-  shareHashtags: ["CHISATO", "CHISATOクイズガチャ"],
+  shareHashtags: ["小林千悟", "CHISATOQUIZGACHA"],
   // フッターに表示するコピーライト表記
   footerCopyright: "CHISATO QUIZ GACHA by小林千悟くん応援有志",
 };

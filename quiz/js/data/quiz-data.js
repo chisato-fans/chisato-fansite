@@ -20,7 +20,8 @@
 //   ・難易度ごとの問題数は現在、初級35問・中級45問・上級20問を想定しています。
 //     問題数を増減する場合は js/quiz-engine.js 内の出題数設定(QUIZ_COMPOSITION)も
 //     あわせて確認してください。
-//   ・現在の内容はすべて仮データ(ダミー)です。実際の問題に差し替えてご利用ください。
+//   ・2026.11.03提出分の実データです(q068は誤答1と誤答3が重複しているため
+//     要確認。ひとまずそのまま反映しています)。
 //
 // ============================================================
 
@@ -28,1200 +29,1200 @@ const QUIZ_DATA = [
   {
     id: "q001",
     difficulty: "beginner",
-    question: "【仮問題】初級1：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q001",
+    question: "コンセプト評価「KICK」Costume ver.で、千悟くんが着た海の生き物コスチュームは？",
+    correctAnswer: "カメ🐢",
     wrongAnswers: [
-      "誤答サンプルA q001",
-      "誤答サンプルB q001",
-      "誤答サンプルC q001"
+      "サメ🦈",
+      "ペンギン🐧",
+      "タコ🐙"
     ],
     explanation: ""
   },
   {
     id: "q002",
     difficulty: "beginner",
-    question: "【仮問題】初級2：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q002",
+    question: "私を表すキーワードにしていたのは？",
+    correctAnswer: "素直",
     wrongAnswers: [
-      "誤答サンプルA q002",
-      "誤答サンプルB q002",
-      "誤答サンプルC q002"
+      "妖精",
+      "宇宙人",
+      "ギャップ"
     ],
     explanation: ""
   },
   {
     id: "q003",
     difficulty: "beginner",
-    question: "【仮問題】初級3：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q003",
+    question: "1分PRの際に言っていた今年の恵方はどこ？",
+    correctAnswer: "南南東",
     wrongAnswers: [
-      "誤答サンプルA q003",
-      "誤答サンプルB q003",
-      "誤答サンプルC q003"
+      "西南西",
+      "東北東",
+      "北北西"
     ],
     explanation: ""
   },
   {
     id: "q004",
     difficulty: "beginner",
-    question: "【仮問題】初級4：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q004",
+    question: "グループバトルLOUD1組のショートコンテンツMy Charmより、千悟くんのMy Charmは何？",
+    correctAnswer: "情熱",
     wrongAnswers: [
-      "誤答サンプルA q004",
-      "誤答サンプルB q004",
-      "誤答サンプルC q004"
+      "可愛い",
+      "ニコニコ笑顔",
+      "俺...こっちかなぁ(？)"
     ],
     explanation: ""
   },
   {
     id: "q005",
     difficulty: "beginner",
-    question: "【仮問題】初級5：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q005",
+    question: "練習生手書きプロフィールノートにて趣味に書いていたことは？",
+    correctAnswer: "サイクリング",
     wrongAnswers: [
-      "誤答サンプルA q005",
-      "誤答サンプルB q005",
-      "誤答サンプルC q005"
+      "アイドル",
+      "登山、音楽をきくこと",
+      "お料理、お絵描き、お筋トレ"
     ],
     explanation: ""
   },
   {
     id: "q006",
     difficulty: "beginner",
-    question: "【仮問題】初級6：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q006",
+    question: "ポジションバトルビハインドにて石田亮太くんの好物を聞かれて答えたものは？",
+    correctAnswer: "寿司",
     wrongAnswers: [
-      "誤答サンプルA q006",
-      "誤答サンプルB q006",
-      "誤答サンプルC q006"
+      "オムライス",
+      "蟹味噌",
+      "ポン･デ･リング"
     ],
     explanation: ""
   },
   {
     id: "q007",
     difficulty: "beginner",
-    question: "【仮問題】初級7：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q007",
+    question: "番組放送時点(2026年3月)での小林千悟くんのダンス歴は？",
+    correctAnswer: "6年",
     wrongAnswers: [
-      "誤答サンプルA q007",
-      "誤答サンプルB q007",
-      "誤答サンプルC q007"
+      "9年",
+      "12年",
+      "15年"
     ],
     explanation: ""
   },
   {
     id: "q008",
     difficulty: "beginner",
-    question: "【仮問題】初級8：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q008",
+    question: "小林千悟くんがポテトを好きな理由は？",
+    correctAnswer: "ポテトが大好きだから",
     wrongAnswers: [
-      "誤答サンプルA q008",
-      "誤答サンプルB q008",
-      "誤答サンプルC q008"
+      "しょっぱいものが大好きだから",
+      "じゃがいもが大好きだから",
+      "ファストフードが大好きだから"
     ],
     explanation: ""
   },
   {
     id: "q009",
     difficulty: "beginner",
-    question: "【仮問題】初級9：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q009",
+    question: "小林千悟くんは「1番甘え上手な練習生は？」という質問に対してどの練習生の名前を答えた？",
+    correctAnswer: "シンヘン",
     wrongAnswers: [
-      "誤答サンプルA q009",
-      "誤答サンプルB q009",
-      "誤答サンプルC q009"
+      "リッキー",
+      "ヒョンスン",
+      "アダム"
     ],
     explanation: ""
   },
   {
     id: "q010",
     difficulty: "beginner",
-    question: "【仮問題】初級10：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q010",
+    question: "Scawaii!2026年5月号で千悟くんが回答していた「自分のかっこいいところ」は？",
+    correctAnswer: "カラスのモノマネ",
     wrongAnswers: [
-      "誤答サンプルA q010",
-      "誤答サンプルB q010",
-      "誤答サンプルC q010"
+      "ダンス",
+      "ファッション",
+      "努力できるところ"
     ],
     explanation: ""
   },
   {
     id: "q011",
     difficulty: "beginner",
-    question: "【仮問題】初級11：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q011",
+    question: "千悟くんが日プ新世界 公式に例えられていた動物は？",
+    correctAnswer: "オコジョ",
     wrongAnswers: [
-      "誤答サンプルA q011",
-      "誤答サンプルB q011",
-      "誤答サンプルC q011"
+      "ハムスター",
+      "イタチ",
+      "イヌ"
     ],
     explanation: ""
   },
   {
     id: "q012",
     difficulty: "beginner",
-    question: "【仮問題】初級12：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q012",
+    question: "練習生お披露目イベント101DAYで、千悟くんがじゃんけんをした後言った言葉は？",
+    correctAnswer: "勝った人も負けた人もあいこだった人も、僕に投票したらいいことあるかもよ",
     wrongAnswers: [
-      "誤答サンプルA q012",
-      "誤答サンプルB q012",
-      "誤答サンプルC q012"
+      "勝った人も負けた人もあいこだった人も、ぜひ僕に投票してください",
+      "負けてしまった人も、僕に投票したらいいことあるかもよ",
+      "勝った人も負けた人も、僕に投票するといいことあるかもね"
     ],
     explanation: ""
   },
   {
     id: "q013",
     difficulty: "beginner",
-    question: "【仮問題】初級13：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q013",
+    question: "ホワイトデー画像で千悟くんが持っていたのは？",
+    correctAnswer: "花",
     wrongAnswers: [
-      "誤答サンプルA q013",
-      "誤答サンプルB q013",
-      "誤答サンプルC q013"
+      "ぬいぐるみ",
+      "キャンディ",
+      "ハートのバルーン"
     ],
     explanation: ""
   },
   {
     id: "q014",
     difficulty: "beginner",
-    question: "【仮問題】初級14：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q014",
+    question: "PROFILE PHOTO SHOOTINGで千悟くんが持っていたのは？",
+    correctAnswer: "大きな楕円形の枠",
     wrongAnswers: [
-      "誤答サンプルA q014",
-      "誤答サンプルB q014",
-      "誤答サンプルC q014"
+      "大きな三角の枠",
+      "大きな長方形の枠",
+      "額縁サイズの長方形の枠"
     ],
     explanation: ""
   },
   {
     id: "q015",
     difficulty: "beginner",
-    question: "【仮問題】初級15：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q015",
+    question: "NGワード&アクションゲームで課されたNG内容はなに？",
+    correctAnswer: "「そう！」",
     wrongAnswers: [
-      "誤答サンプルA q015",
-      "誤答サンプルB q015",
-      "誤答サンプルC q015"
+      "「素晴らしい」",
+      "下唇を噛む",
+      "アイソレーション"
     ],
     explanation: ""
   },
   {
     id: "q016",
     difficulty: "beginner",
-    question: "【仮問題】初級16：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q016",
+    question: "グループバトル、ポジション評価、コンセプト評価全てで同じグループだったメンバーは誰？",
+    correctAnswer: "石田亮太",
     wrongAnswers: [
-      "誤答サンプルA q016",
-      "誤答サンプルB q016",
-      "誤答サンプルC q016"
+      "大林悠成",
+      "浅香孝太郎",
+      "篠ヶ谷歩夢"
     ],
     explanation: ""
   },
   {
     id: "q017",
     difficulty: "beginner",
-    question: "【仮問題】初級17：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q017",
+    question: "LOUDハイライトにて「CHISATOよろしく！」と言っていたのは？",
+    correctAnswer: "Kevin Woo",
     wrongAnswers: [
-      "誤答サンプルA q017",
-      "誤答サンプルB q017",
-      "誤答サンプルC q017"
+      "KAITA",
+      "仲宗根梨乃",
+      "安達祐人"
     ],
     explanation: ""
   },
   {
     id: "q018",
     difficulty: "beginner",
-    question: "【仮問題】初級18：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q018",
+    question: "応援素材での練習着の色は？",
+    correctAnswer: "黄緑",
     wrongAnswers: [
-      "誤答サンプルA q018",
-      "誤答サンプルB q018",
-      "誤答サンプルC q018"
+      "ピンク",
+      "オレンジ",
+      "黒"
     ],
     explanation: ""
   },
   {
     id: "q019",
     difficulty: "beginner",
-    question: "【仮問題】初級19：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q019",
+    question: "手書きプロフィールノートのTMIに書いていたことは？",
+    correctAnswer: "鎖骨に物が入る",
     wrongAnswers: [
-      "誤答サンプルA q019",
-      "誤答サンプルB q019",
-      "誤答サンプルC q019"
+      "これを書くために友達にたくさん聞きました",
+      "三頭筋が大きくならない",
+      "最近胃もたれがすごい"
     ],
     explanation: ""
   },
   {
     id: "q020",
     difficulty: "beginner",
-    question: "【仮問題】初級20：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q020",
+    question: "応援素材の練習着姿ver.では何に座っていた？",
+    correctAnswer: "タイヤ",
     wrongAnswers: [
-      "誤答サンプルA q020",
-      "誤答サンプルB q020",
-      "誤答サンプルC q020"
+      "ブランコ",
+      "買い物カート",
+      "ハシゴ"
     ],
     explanation: ""
   },
   {
     id: "q021",
     difficulty: "beginner",
-    question: "【仮問題】初級21：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q021",
+    question: "私に投票すべき3つの理由の中で2番目に出てきた単語は？",
+    correctAnswer: "笑顔",
     wrongAnswers: [
-      "誤答サンプルA q021",
-      "誤答サンプルB q021",
-      "誤答サンプルC q021"
+      "ダンス",
+      "覚悟",
+      "情熱"
     ],
     explanation: ""
   },
   {
     id: "q022",
     difficulty: "beginner",
-    question: "【仮問題】初級22：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q022",
+    question: "千悟くんのコンセプト評価でのチーム名は？",
+    correctAnswer: "KICK&BASS",
     wrongAnswers: [
-      "誤答サンプルA q022",
-      "誤答サンプルB q022",
-      "誤答サンプルC q022"
+      "KICK&SHOUT",
+      "DASH&KICK",
+      "BEAT&KICK"
     ],
     explanation: ""
   },
   {
     id: "q023",
     difficulty: "beginner",
-    question: "【仮問題】初級23：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q023",
+    question: "新世界放送終了後、初めてInstagramに投稿された書道で書かれた言葉は何？",
+    correctAnswer: "感謝",
     wrongAnswers: [
-      "誤答サンプルA q023",
-      "誤答サンプルB q023",
-      "誤答サンプルC q023"
+      "ありがとう",
+      "努力",
+      "初心"
     ],
     explanation: ""
   },
   {
     id: "q024",
     difficulty: "beginner",
-    question: "【仮問題】初級24：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q024",
+    question: "千悟くんが自分で似ていると答えた動物は何？",
+    correctAnswer: "ハムスター",
     wrongAnswers: [
-      "誤答サンプルA q024",
-      "誤答サンプルB q024",
-      "誤答サンプルC q024"
+      "犬",
+      "オコジョ",
+      "猫"
     ],
     explanation: ""
   },
   {
     id: "q025",
     difficulty: "beginner",
-    question: "【仮問題】初級25：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q025",
+    question: "NGワードゲームの罰ゲームとして千悟くんがやった愛嬌は何のポーズ？",
+    correctAnswer: "うさぎの耳",
     wrongAnswers: [
-      "誤答サンプルA q025",
-      "誤答サンプルB q025",
-      "誤答サンプルC q025"
+      "ほっぺハート",
+      "ほっぺつん",
+      "猫耳"
     ],
     explanation: ""
   },
   {
     id: "q026",
     difficulty: "beginner",
-    question: "【仮問題】初級26：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q026",
+    question: "Naturalのフリを作る際、3組に分かれて作りましたが、千悟くんが一緒に作ったのは誰？",
+    correctAnswer: "石田亮太くん",
     wrongAnswers: [
-      "誤答サンプルA q026",
-      "誤答サンプルB q026",
-      "誤答サンプルC q026"
+      "朝香孝太郎くん",
+      "チェン・リッキーくん",
+      "安部結蘭くん"
     ],
     explanation: ""
   },
   {
     id: "q027",
     difficulty: "beginner",
-    question: "【仮問題】初級27：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q027",
+    question: "おやすみ新世界の登場シーンで、千悟くんと一緒に階段を降りてきたのは誰？",
+    correctAnswer: "チェン・リッキーくん",
     wrongAnswers: [
-      "誤答サンプルA q027",
-      "誤答サンプルB q027",
-      "誤答サンプルC q027"
+      "石田亮太くん",
+      "アダム・ナガイくん",
+      "岡田侑磨くん"
     ],
     explanation: ""
   },
   {
     id: "q028",
     difficulty: "beginner",
-    question: "【仮問題】初級28：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q028",
+    question: "千悟くんがポジション評価で目指していたのは何？",
+    correctAnswer: "総合優勝",
     wrongAnswers: [
-      "誤答サンプルA q028",
-      "誤答サンプルB q028",
-      "誤答サンプルC q028"
+      "チーム優勝",
+      "総合1位",
+      "チーム総合1位"
     ],
     explanation: ""
   },
   {
     id: "q029",
     difficulty: "beginner",
-    question: "【仮問題】初級29：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q029",
+    question: "千悟くんの好きな色は？",
+    correctAnswer: "黄緑",
     wrongAnswers: [
-      "誤答サンプルA q029",
-      "誤答サンプルB q029",
-      "誤答サンプルC q029"
+      "白",
+      "黄色",
+      "青"
     ],
     explanation: ""
   },
   {
     id: "q030",
     difficulty: "beginner",
-    question: "【仮問題】初級30：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q030",
+    question: "ダンス部の他に千悟くんが経験した部活動は？",
+    correctAnswer: "ソフトテニス部",
     wrongAnswers: [
-      "誤答サンプルA q030",
-      "誤答サンプルB q030",
-      "誤答サンプルC q030"
+      "サッカー部",
+      "バスケ部",
+      "自転車部"
     ],
     explanation: ""
   },
   {
     id: "q031",
     difficulty: "beginner",
-    question: "【仮問題】初級31：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q031",
+    question: "「小林千悟」画数は何画？",
+    correctAnswer: "24画",
     wrongAnswers: [
-      "誤答サンプルA q031",
-      "誤答サンプルB q031",
-      "誤答サンプルC q031"
+      "22画",
+      "23画",
+      "21画"
     ],
     explanation: ""
   },
   {
     id: "q032",
     difficulty: "beginner",
-    question: "【仮問題】初級32：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q032",
+    question: "グループバトルのリノさんのレッスン内で、紙コップの壁をぶち壊す際千悟くんが発した掛け声は？",
+    correctAnswer: "おりゃ！",
     wrongAnswers: [
-      "誤答サンプルA q032",
-      "誤答サンプルB q032",
-      "誤答サンプルC q032"
+      "はっ！",
+      "えいや！",
+      "あー！！"
     ],
     explanation: ""
   },
   {
     id: "q033",
     difficulty: "beginner",
-    question: "【仮問題】初級33：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q033",
+    question: "千悟くんの推しカメラ4本のサムネイルのうち手が映っているのはいくつある？",
+    correctAnswer: "3つ",
     wrongAnswers: [
-      "誤答サンプルA q033",
-      "誤答サンプルB q033",
-      "誤答サンプルC q033"
+      "1つ",
+      "2つ",
+      "4つ"
     ],
     explanation: ""
   },
   {
     id: "q034",
     difficulty: "beginner",
-    question: "【仮問題】初級34：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q034",
+    question: "千悟くんのグループバトルでのチーム名は？",
+    correctAnswer: "BE PLoud",
     wrongAnswers: [
-      "誤答サンプルA q034",
-      "誤答サンプルB q034",
-      "誤答サンプルC q034"
+      "BE PROUD",
+      "BE REAL",
+      "BE Plastic"
     ],
     explanation: ""
   },
   {
     id: "q035",
     difficulty: "beginner",
-    question: "【仮問題】初級35：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q035",
+    question: "千悟くんの誕生日は何月何日？",
+    correctAnswer: "2月3日",
     wrongAnswers: [
-      "誤答サンプルA q035",
-      "誤答サンプルB q035",
-      "誤答サンプルC q035"
+      "2月1日",
+      "2月2日",
+      "2月4日"
     ],
     explanation: ""
   },
   {
     id: "q036",
     difficulty: "intermediate",
-    question: "【仮問題】中級1：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q036",
+    question: "獅子舞の4人で撮影していたHaruFilmで千悟くんがしていたポーズはどれ？",
+    correctAnswer: "両手でファイティングポーズ",
     wrongAnswers: [
-      "誤答サンプルA q036",
-      "誤答サンプルB q036",
-      "誤答サンプルC q036"
+      "両手でハートを作るポーズ",
+      "両手でピース",
+      "両手を振るポーズ"
     ],
     explanation: ""
   },
   {
     id: "q037",
     difficulty: "intermediate",
-    question: "【仮問題】中級2：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q037",
+    question: "千悟くんがコンセプト評価で実は一番やってみたかった曲は？",
+    correctAnswer: "Neko（ねこ）",
     wrongAnswers: [
-      "誤答サンプルA q037",
-      "誤答サンプルB q037",
-      "誤答サンプルC q037"
+      "DREAMER",
+      "BLACK ANGEL",
+      "Fuego"
     ],
     explanation: ""
   },
   {
     id: "q038",
     difficulty: "intermediate",
-    question: "【仮問題】中級3：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q038",
+    question: "MpickardのHidden World＃9. Snack Timeのカードで千悟くんが持っていたスイーツは？",
+    correctAnswer: "ドーナツ",
     wrongAnswers: [
-      "誤答サンプルA q038",
-      "誤答サンプルB q038",
-      "誤答サンプルC q038"
+      "バームクーヘン",
+      "クッキー",
+      "マカロン"
     ],
     explanation: ""
   },
   {
     id: "q039",
     difficulty: "intermediate",
-    question: "【仮問題】中級4：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q039",
+    question: "千悟くんのセルカチャレンジで、実際にトレカになったのは何枚目？",
+    correctAnswer: "3枚目",
     wrongAnswers: [
-      "誤答サンプルA q039",
-      "誤答サンプルB q039",
-      "誤答サンプルC q039"
+      "1枚目",
+      "2枚目",
+      "4枚目"
     ],
     explanation: ""
   },
   {
     id: "q040",
     difficulty: "intermediate",
-    question: "【仮問題】中級5：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q040",
+    question: "新世界のショートコンテンツTIME ATTACK KEYWORD GAMEにて千悟が引いたキーワード「覚悟」「テンション」あと１つは何？",
+    correctAnswer: "ラーメン",
     wrongAnswers: [
-      "誤答サンプルA q040",
-      "誤答サンプルB q040",
-      "誤答サンプルC q040"
+      "餃子",
+      "ポテト",
+      "そば"
     ],
     explanation: ""
   },
   {
     id: "q041",
     difficulty: "intermediate",
-    question: "【仮問題】中級6：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q041",
+    question: "私に投票すべき3つの理由の中で3番目に出てきた単語は？",
+    correctAnswer: "覚悟",
     wrongAnswers: [
-      "誤答サンプルA q041",
-      "誤答サンプルB q041",
-      "誤答サンプルC q041"
+      "素直",
+      "情熱",
+      "成長"
     ],
     explanation: ""
   },
   {
     id: "q042",
     difficulty: "intermediate",
-    question: "【仮問題】中級7：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q042",
+    question: "POOL THE SHINSEKAI 障害物リレーにて、第2エリア担当の千悟くんが前の走者からバトンを受け取った時は何位だったでしょう？",
+    correctAnswer: "4位",
     wrongAnswers: [
-      "誤答サンプルA q042",
-      "誤答サンプルB q042",
-      "誤答サンプルC q042"
+      "2位",
+      "3位",
+      "5位"
     ],
     explanation: ""
   },
   {
     id: "q043",
     difficulty: "intermediate",
-    question: "【仮問題】中級8：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q043",
+    question: "コンセプト評価チーム分けの際にディーンフジオカから渡されたカードに書かれていたアルファベットは？",
+    correctAnswer: "C",
     wrongAnswers: [
-      "誤答サンプルA q043",
-      "誤答サンプルB q043",
-      "誤答サンプルC q043"
+      "A",
+      "B",
+      "D"
     ],
     explanation: ""
   },
   {
     id: "q044",
     difficulty: "intermediate",
-    question: "【仮問題】中級9：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q044",
+    question: "新世界THE FINALISTS:10QUESTIONSより、今の自分を一番よく表す言葉を一つあげるなら？の質問での千悟くんの回答は？",
+    correctAnswer: "強い覚悟",
     wrongAnswers: [
-      "誤答サンプルA q044",
-      "誤答サンプルB q044",
-      "誤答サンプルC q044"
+      "特大の感謝",
+      "ダイナミックなダンス",
+      "とびきりの笑顔"
     ],
     explanation: ""
   },
   {
     id: "q045",
     difficulty: "intermediate",
-    question: "【仮問題】中級10：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q045",
+    question: "コンセプト評価KICK Costume ver.衣装決めじゃんけんで千悟が出したのは何？",
+    correctAnswer: "ちょき✌🏻",
     wrongAnswers: [
-      "誤答サンプルA q045",
-      "誤答サンプルB q045",
-      "誤答サンプルC q045"
+      "ぐー✊🏻",
+      "ぱー✋🏻",
+      "こっちのぐー👍🏻"
     ],
     explanation: ""
   },
   {
     id: "q046",
     difficulty: "intermediate",
-    question: "【仮問題】中級11：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q046",
+    question: "新世界放送終了後、初めてInstagramに投稿された際に使用していた絵文字は何？",
+    correctAnswer: "餃子🥟",
     wrongAnswers: [
-      "誤答サンプルA q046",
-      "誤答サンプルB q046",
-      "誤答サンプルC q046"
+      "クローバー🍀",
+      "ハムスター🐹",
+      "ハート💖"
     ],
     explanation: ""
   },
   {
     id: "q047",
     difficulty: "intermediate",
-    question: "【仮問題】中級12：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q047",
+    question: "ファイナル放送中のファイナリストの紹介での千悟くんのキャッチコピーは？",
+    correctAnswer: "ふわふわ系ダンスマスター",
     wrongAnswers: [
-      "誤答サンプルA q047",
-      "誤答サンプルB q047",
-      "誤答サンプルC q047"
+      "にこにこ系ダンスマスター",
+      "キレキレ系ダンスマスター",
+      "ふわふわ系パフォーマンスマスター"
     ],
     explanation: ""
   },
   {
     id: "q048",
     difficulty: "intermediate",
-    question: "【仮問題】中級13：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q048",
+    question: "千悟くんのMBTIは何？",
+    correctAnswer: "ISFP",
     wrongAnswers: [
-      "誤答サンプルA q048",
-      "誤答サンプルB q048",
-      "誤答サンプルC q048"
+      "INFJ",
+      "ISFJ",
+      "ESFP"
     ],
     explanation: ""
   },
   {
     id: "q049",
     difficulty: "intermediate",
-    question: "【仮問題】中級14：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q049",
+    question: "グループバトルの曲決めで、千悟くんはLOUDともう一つは何の曲で迷っていましたか？",
+    correctAnswer: "IRIS OUT",
     wrongAnswers: [
-      "誤答サンプルA q049",
-      "誤答サンプルB q049",
-      "誤答サンプルC q049"
+      "Love seeker",
+      "Bite Me",
+      "CASE 143"
     ],
     explanation: ""
   },
   {
     id: "q050",
     difficulty: "intermediate",
-    question: "【仮問題】中級15：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q050",
+    question: "千悟くんはKCON JAPANの10秒PRで何をした？",
+    correctAnswer: "無音ダンス",
     wrongAnswers: [
-      "誤答サンプルA q050",
-      "誤答サンプルB q050",
-      "誤答サンプルC q050"
+      "豆まき",
+      "じゃんけん",
+      "アカペラ"
     ],
     explanation: ""
   },
   {
     id: "q051",
     difficulty: "intermediate",
-    question: "【仮問題】中級16：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q051",
+    question: "朝ごはんといえば何？千悟くんの回答は？",
+    correctAnswer: "納豆",
     wrongAnswers: [
-      "誤答サンプルA q051",
-      "誤答サンプルB q051",
-      "誤答サンプルC q051"
+      "パン",
+      "シリアル",
+      "ヨーグルト"
     ],
     explanation: ""
   },
   {
     id: "q052",
     difficulty: "intermediate",
-    question: "【仮問題】中級17：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q052",
+    question: "メンプリNo.1決定戦で千悟くんは何の番長でしたか？",
+    correctAnswer: "お皿洗い",
     wrongAnswers: [
-      "誤答サンプルA q052",
-      "誤答サンプルB q052",
-      "誤答サンプルC q052"
+      "掃除",
+      "料理",
+      "ダンス"
     ],
     explanation: ""
   },
   {
     id: "q053",
     difficulty: "intermediate",
-    question: "【仮問題】中級18：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q053",
+    question: "メンプリNo.1決定戦で千悟くんがデコレーションしたのは何？",
+    correctAnswer: "ノグリクランチチョコ",
     wrongAnswers: [
-      "誤答サンプルA q053",
-      "誤答サンプルB q053",
-      "誤答サンプルC q053"
+      "マシュマロチョコ",
+      "オレオクランチチョコ",
+      "アルフォートチョコ"
     ],
     explanation: ""
   },
   {
     id: "q054",
     difficulty: "intermediate",
-    question: "【仮問題】中級19：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q054",
+    question: "千悟くんのサインに書かれているものは何？",
+    correctAnswer: "星",
     wrongAnswers: [
-      "誤答サンプルA q054",
-      "誤答サンプルB q054",
-      "誤答サンプルC q054"
+      "ハート",
+      "クローバー",
+      "ニコちゃんマーク"
     ],
     explanation: ""
   },
   {
     id: "q055",
     difficulty: "intermediate",
-    question: "【仮問題】中級20：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q055",
+    question: "私に投票すべき3つの理由の中で1番目に出てきた単語は？",
+    correctAnswer: "ダンス",
     wrongAnswers: [
-      "誤答サンプルA q055",
-      "誤答サンプルB q055",
-      "誤答サンプルC q055"
+      "笑顔",
+      "覚悟",
+      "経験"
     ],
     explanation: ""
   },
   {
     id: "q056",
     difficulty: "intermediate",
-    question: "【仮問題】中級21：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q056",
+    question: "千悟くんのポジション評価でのチーム名は？",
+    correctAnswer: "NatureSelf",
     wrongAnswers: [
-      "誤答サンプルA q056",
-      "誤答サンプルB q056",
-      "誤答サンプルC q056"
+      "Natural",
+      "NatureSeed",
+      "NaturalFace"
     ],
     explanation: ""
   },
   {
     id: "q057",
     difficulty: "intermediate",
-    question: "【仮問題】中級22：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q057",
+    question: "千悟くんの身長は何㎝？",
+    correctAnswer: "173㎝",
     wrongAnswers: [
-      "誤答サンプルA q057",
-      "誤答サンプルB q057",
-      "誤答サンプルC q057"
+      "170㎝",
+      "175㎝",
+      "172㎝"
     ],
     explanation: ""
   },
   {
     id: "q058",
     difficulty: "intermediate",
-    question: "【仮問題】中級23：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q058",
+    question: "新世界FAN BOOK第1弾の中で「よく千悟くんと部屋で筋トレをしたのが楽しかった」と言っていたのは誰？",
+    correctAnswer: "河合 晃誠くん",
     wrongAnswers: [
-      "誤答サンプルA q058",
-      "誤答サンプルB q058",
-      "誤答サンプルC q058"
+      "甲斐 陸也くん",
+      "今江 陸斗くん",
+      "石田 亮太くん"
     ],
     explanation: ""
   },
   {
     id: "q059",
     difficulty: "intermediate",
-    question: "【仮問題】中級24：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q059",
+    question: "千悟くんが「ファンから言われたら嬉しいこと」は？",
+    correctAnswer: "ちさとー！！",
     wrongAnswers: [
-      "誤答サンプルA q059",
-      "誤答サンプルB q059",
-      "誤答サンプルC q059"
+      "かっこいいね",
+      "いつも頑張ってるね",
+      "ちさとが1番だよ！"
     ],
     explanation: ""
   },
   {
     id: "q060",
     difficulty: "intermediate",
-    question: "【仮問題】中級25：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q060",
+    question: "千悟くんの子供の頃の夢は？",
+    correctAnswer: "幼稚園の先生",
     wrongAnswers: [
-      "誤答サンプルA q060",
-      "誤答サンプルB q060",
-      "誤答サンプルC q060"
+      "ダンサー",
+      "ヒカキン",
+      "お花屋さん"
     ],
     explanation: ""
   },
   {
     id: "q061",
     difficulty: "intermediate",
-    question: "【仮問題】中級26：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q061",
+    question: "新世界FAN BOOK第1弾の中で千悟くんが練習中に貰って「頑張った体に沁みた」と答えていたものは？",
+    correctAnswer: "チョコレート",
     wrongAnswers: [
-      "誤答サンプルA q061",
-      "誤答サンプルB q061",
-      "誤答サンプルC q061"
+      "ノグリラーメン",
+      "あったかいお弁当",
+      "コーヒー"
     ],
     explanation: ""
   },
   {
     id: "q062",
     difficulty: "intermediate",
-    question: "【仮問題】中級27：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q062",
+    question: "新世界FAN BOOK第1弾の中で、歩夢くんの合宿中のエピソードとして書かれていた、「千悟くんが歩夢くんに一発ギャグを振った」場所は？",
+    correctAnswer: "食堂",
     wrongAnswers: [
-      "誤答サンプルA q062",
-      "誤答サンプルB q062",
-      "誤答サンプルC q062"
+      "練習部屋",
+      "宿舎",
+      "洗面所"
     ],
     explanation: ""
   },
   {
     id: "q063",
     difficulty: "intermediate",
-    question: "【仮問題】中級28：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q063",
+    question: "新世界FAN BOOK第1弾の表紙で千悟くんがしているポーズは？",
+    correctAnswer: "ピース✌",
     wrongAnswers: [
-      "誤答サンプルA q063",
-      "誤答サンプルB q063",
-      "誤答サンプルC q063"
+      "グー👍",
+      "バイバイ✋",
+      "手は何もしていない"
     ],
     explanation: ""
   },
   {
     id: "q064",
     difficulty: "intermediate",
-    question: "【仮問題】中級29：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q064",
+    question: "Run Againの衣装で千悟くんが白のジャケットの下に着ているのは？",
+    correctAnswer: "ストライプシャツにリボン",
     wrongAnswers: [
-      "誤答サンプルA q064",
-      "誤答サンプルB q064",
-      "誤答サンプルC q064"
+      "ストライプシャツにネクタイ",
+      "フリルシャツにリボン",
+      "フリルシャツにネクタイ"
     ],
     explanation: ""
   },
   {
     id: "q065",
     difficulty: "intermediate",
-    question: "【仮問題】中級30：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q065",
+    question: "千悟くんがBORN TO BEの衣装で着けているベルトにあしらわれているモチーフは？",
+    correctAnswer: "ハート",
     wrongAnswers: [
-      "誤答サンプルA q065",
-      "誤答サンプルB q065",
-      "誤答サンプルC q065"
+      "スカル",
+      "星",
+      "炎"
     ],
     explanation: ""
   },
   {
     id: "q066",
     difficulty: "intermediate",
-    question: "【仮問題】中級31：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q066",
+    question: "KICKでの千悟くんのパートは？",
+    correctAnswer: "ラッパー③",
     wrongAnswers: [
-      "誤答サンプルA q066",
-      "誤答サンプルB q066",
-      "誤答サンプルC q066"
+      "ラッパー②",
+      "ボーカル③",
+      "ラッパー①"
     ],
     explanation: ""
   },
   {
     id: "q067",
     difficulty: "intermediate",
-    question: "【仮問題】中級32：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q067",
+    question: "BORN TO BEでの千悟くんのパートは？",
+    correctAnswer: "ラッパー③",
     wrongAnswers: [
-      "誤答サンプルA q067",
-      "誤答サンプルB q067",
-      "誤答サンプルC q067"
+      "ボーカル⑤",
+      "ボーカル③",
+      "ラッパー②"
     ],
     explanation: ""
   },
   {
     id: "q068",
     difficulty: "intermediate",
-    question: "【仮問題】中級33：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q068",
+    question: "LOUDでの千悟くんのパートは？",
+    correctAnswer: "ボーカル③",
     wrongAnswers: [
-      "誤答サンプルA q068",
-      "誤答サンプルB q068",
-      "誤答サンプルC q068"
+      "ラッパー②",
+      "ボーカル②",
+      "ラッパー②"
     ],
     explanation: ""
   },
   {
     id: "q069",
     difficulty: "intermediate",
-    question: "【仮問題】中級34：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q069",
+    question: "POOL THE SHINSEKAI開幕時、千悟くんがチームカラーのバンダナをつけていた部位は？",
+    correctAnswer: "左腕",
     wrongAnswers: [
-      "誤答サンプルA q069",
-      "誤答サンプルB q069",
-      "誤答サンプルC q069"
+      "右腕",
+      "首",
+      "額"
     ],
     explanation: ""
   },
   {
     id: "q070",
     difficulty: "intermediate",
-    question: "【仮問題】中級35：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q070",
+    question: "千悟くんがOCTPATHのライブ「Sparkle」のバックダンサーに応募する際のダンス動画を撮影した場所は？",
+    correctAnswer: "路上",
     wrongAnswers: [
-      "誤答サンプルA q070",
-      "誤答サンプルB q070",
-      "誤答サンプルC q070"
+      "自宅",
+      "スタジオ",
+      "校舎内"
     ],
     explanation: ""
   },
   {
     id: "q071",
     difficulty: "intermediate",
-    question: "【仮問題】中級36：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q071",
+    question: "千悟くんが黄緑が好きな理由は？",
+    correctAnswer: "緑より蛍光っぽい明るい色だから",
     wrongAnswers: [
-      "誤答サンプルA q071",
-      "誤答サンプルB q071",
-      "誤答サンプルC q071"
+      "昔から植物が好きだから",
+      "見ると元気になるから",
+      "ユニフォームの色だったから"
     ],
     explanation: ""
   },
   {
     id: "q072",
     difficulty: "intermediate",
-    question: "【仮問題】中級37：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q072",
+    question: "KCON JAPANのメッセージボードに書かれていた千悟くんのメッセージの締めくくりは？",
+    correctAnswer: "大好き♡",
     wrongAnswers: [
-      "誤答サンプルA q072",
-      "誤答サンプルB q072",
-      "誤答サンプルC q072"
+      "ありがとうございます！",
+      "最高！！",
+      "thank you☆"
     ],
     explanation: ""
   },
   {
     id: "q073",
     difficulty: "intermediate",
-    question: "【仮問題】中級38：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q073",
+    question: "ポジション評価のチームごとのON Stage⇔OFF Stageショート動画で千悟くんの「OFF」時になんの姿が使われていた？",
+    correctAnswer: "グループバトル合宿時のインタビュー中の姿",
     wrongAnswers: [
-      "誤答サンプルA q073",
-      "誤答サンプルB q073",
-      "誤答サンプルC q073"
+      "ポジション評価合宿中に食事をしているときの姿",
+      "シグナルソング合宿時の練習中の姿",
+      "ポジション評価のチーム分け中の姿"
     ],
     explanation: ""
   },
   {
     id: "q074",
     difficulty: "intermediate",
-    question: "【仮問題】中級39：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q074",
+    question: "ポジション評価のバックステージカメラで、パフォーマンスのステージに出る直前に千悟くんがしたのは？",
+    correctAnswer: "胸に手を当てる",
     wrongAnswers: [
-      "誤答サンプルA q074",
-      "誤答サンプルB q074",
-      "誤答サンプルC q074"
+      "ガッツポーズをする",
+      "両手を合わせる",
+      "カメラに手を振る"
     ],
     explanation: ""
   },
   {
     id: "q075",
     difficulty: "intermediate",
-    question: "【仮問題】中級40：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q075",
+    question: "コンセプト評価のバックステージカメラで、パフォーマンスのステージに出る直前に千悟くんがしたのは？",
+    correctAnswer: "カメラに手を振る",
     wrongAnswers: [
-      "誤答サンプルA q075",
-      "誤答サンプルB q075",
-      "誤答サンプルC q075"
+      "KICKのサビの振りをする",
+      "拳を突き出す",
+      "顔にハートの手を当てる"
     ],
     explanation: ""
   },
   {
     id: "q076",
     difficulty: "intermediate",
-    question: "【仮問題】中級41：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q076",
+    question: "SHINSEKAI KONBINIで千悟くんがお菓子をとるために使ったアイテムは？",
+    correctAnswer: "小さい網",
     wrongAnswers: [
-      "誤答サンプルA q076",
-      "誤答サンプルB q076",
-      "誤答サンプルC q076"
+      "大きな網",
+      "大きな箸",
+      "マジックハンド"
     ],
     explanation: ""
   },
   {
     id: "q077",
     difficulty: "intermediate",
-    question: "【仮問題】中級42：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q077",
+    question: "＆PAIR SHOOTINGで千悟くんが「宿舎で＆PAIRを使った感想」として答えた内容は？",
+    correctAnswer: "キラッキラになっちゃいます",
     wrongAnswers: [
-      "誤答サンプルA q077",
-      "誤答サンプルB q077",
-      "誤答サンプルC q077"
+      "ツヤッツヤになっちゃいます",
+      "サラッサラになっちゃいます",
+      "ピッカピカになっちゃいます"
     ],
     explanation: ""
   },
   {
     id: "q078",
     difficulty: "intermediate",
-    question: "【仮問題】中級43：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q078",
+    question: "新世界オーダーラボで販売されていたスマホケース＜書き下ろしサインver.＞に書かれていた千悟くんのサインは？",
+    correctAnswer: "縦書きの「小林千悟」",
     wrongAnswers: [
-      "誤答サンプルA q078",
-      "誤答サンプルB q078",
-      "誤答サンプルC q078"
+      "横書きの「小林千悟」",
+      "縦書きの「Chisato」",
+      "横書きの「Chisato」"
     ],
     explanation: ""
   },
   {
     id: "q079",
     difficulty: "intermediate",
-    question: "【仮問題】中級44：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q079",
+    question: "Team\"S\"pecialのインスタライブで披露されたエピソードで、千悟くんがTeam\"S\"pecialに所属していた時、「歩夢くんと楽屋でずっとしていた」こととは？",
+    correctAnswer: "歯磨き",
     wrongAnswers: [
-      "誤答サンプルA q079",
-      "誤答サンプルB q079",
-      "誤答サンプルC q079"
+      "筋トレ",
+      "一発ギャグ",
+      "ダンスの練習"
     ],
     explanation: ""
   },
   {
     id: "q080",
     difficulty: "intermediate",
-    question: "【仮問題】中級45：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q080",
+    question: "Kevin式呼吸コントロールのトレーニングを受けた後の千悟くんの感想はどれ？",
+    correctAnswer: "めっちゃキツかった",
     wrongAnswers: [
-      "誤答サンプルA q080",
-      "誤答サンプルB q080",
-      "誤答サンプルC q080"
+      "めっちゃ勉強になった",
+      "ちょっとしんどかった",
+      "ちょっと楽しかった"
     ],
     explanation: ""
   },
   {
     id: "q081",
     difficulty: "advanced",
-    question: "【仮問題】上級1：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q081",
+    question: "PRODUCE 101 JAPAN 新世界 #11 『サプライズ家族メッセージ』にて 小林千悟くんへの応援動画にご出演されたご家族・ご親族は総勢何名？",
+    correctAnswer: "12名",
     wrongAnswers: [
-      "誤答サンプルA q081",
-      "誤答サンプルB q081",
-      "誤答サンプルC q081"
+      "10名",
+      "11名",
+      "13名"
     ],
     explanation: ""
   },
   {
     id: "q082",
     difficulty: "advanced",
-    question: "【仮問題】上級2：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q082",
+    question: "Amazon Makeupにて千悟くんに使っていたリップモンスターの色はどれ？（https://youtu.be/w4lD_mZzTEg）",
+    correctAnswer: "05　ダークフィグ",
     wrongAnswers: [
-      "誤答サンプルA q082",
-      "誤答サンプルB q082",
-      "誤答サンプルC q082"
+      "03 陽炎",
+      "12 誓いのルビー",
+      "19 口染めライチの甘い罠"
     ],
     explanation: ""
   },
   {
     id: "q083",
     difficulty: "advanced",
-    question: "【仮問題】上級3：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q083",
+    question: "デビュー公約のスケッチブックに描かれていたカプセルの数は何個？",
+    correctAnswer: "8",
     wrongAnswers: [
-      "誤答サンプルA q083",
-      "誤答サンプルB q083",
-      "誤答サンプルC q083"
+      "6",
+      "10",
+      "12"
     ],
     explanation: ""
   },
   {
     id: "q084",
     difficulty: "advanced",
-    question: "【仮問題】上級4：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q084",
+    question: "コンセプト評価KICKのBACK STAGE CAMERAで千悟くんとハグしている練習生は誰？",
+    correctAnswer: "大林悠成くん",
     wrongAnswers: [
-      "誤答サンプルA q084",
-      "誤答サンプルB q084",
-      "誤答サンプルC q084"
+      "石田亮太くん",
+      "横山奏夢くん",
+      "浅香孝太郎くん"
     ],
     explanation: ""
   },
   {
     id: "q085",
     difficulty: "advanced",
-    question: "【仮問題】上級5：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q085",
+    question: "Amazon Makeupで千悟くんに使われたのはKATEのポッピングシルエットシャドウのうちどれ？",
+    correctAnswer: "アプリコットポップ（OR-1）",
     wrongAnswers: [
-      "誤答サンプルA q085",
-      "誤答サンプルB q085",
-      "誤答サンプルC q085"
+      "モーヴポップ（MV-1）",
+      "コーラルロゼポップ（OR-2）",
+      "シナモンポップ（BE-1）"
     ],
     explanation: ""
   },
   {
     id: "q086",
     difficulty: "advanced",
-    question: "【仮問題】上級6：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q086",
+    question: "新世界FAN BOOK第1弾で公開された千悟くんの日誌は何月何日のもの？",
+    correctAnswer: "2/12・2/23",
     wrongAnswers: [
-      "誤答サンプルA q086",
-      "誤答サンプルB q086",
-      "誤答サンプルC q086"
+      "2/3・2/12",
+      "2/3・2/23",
+      "2/12・2/20"
     ],
     explanation: ""
   },
   {
     id: "q087",
     difficulty: "advanced",
-    question: "【仮問題】上級7：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q087",
+    question: "新世界FAN BOOK第1弾で公開された千悟くんの日誌（2日分）の中に出てきた「最高」の回数は？",
+    correctAnswer: "5回",
     wrongAnswers: [
-      "誤答サンプルA q087",
-      "誤答サンプルB q087",
-      "誤答サンプルC q087"
+      "4回",
+      "3回",
+      "2回"
     ],
     explanation: ""
   },
   {
     id: "q088",
     difficulty: "advanced",
-    question: "【仮問題】上級8：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q088",
+    question: "新世界FAN BOOK PLUSで公開された千悟くんの日誌は何月何日のもの？",
+    correctAnswer: "5/5・6/4",
     wrongAnswers: [
-      "誤答サンプルA q088",
-      "誤答サンプルB q088",
-      "誤答サンプルC q088"
+      "5/3・6/5",
+      "5/4・6/3",
+      "5/2・6/6"
     ],
     explanation: ""
   },
   {
     id: "q089",
     difficulty: "advanced",
-    question: "【仮問題】上級9：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q089",
+    question: "KCON JAPANのレッドカーペットで千悟くんの両隣にいた練習生は？",
+    correctAnswer: "板倉悠太くん＆チェン・リッキーくん",
     wrongAnswers: [
-      "誤答サンプルA q089",
-      "誤答サンプルB q089",
-      "誤答サンプルC q089"
+      "今江陸斗くん＆チェン・リッキーくん",
+      "板倉悠太くん＆横山奏夢くん",
+      "今江陸斗くん＆横山奏夢くん"
     ],
     explanation: ""
   },
   {
     id: "q090",
     difficulty: "advanced",
-    question: "【仮問題】上級10：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q090",
+    question: "ファイナルまであと3日のカウントダウン動画で、千悟くんが「じゃあ、撮ります～」の掛け声のあとにしたポーズは？",
+    correctAnswer: "ガオー🖐️",
     wrongAnswers: [
-      "誤答サンプルA q090",
-      "誤答サンプルB q090",
-      "誤答サンプルC q090"
+      "ピース✌",
+      "グッド👍",
+      "拳✊"
     ],
     explanation: ""
   },
   {
     id: "q091",
     difficulty: "advanced",
-    question: "【仮問題】上級11：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q091",
+    question: "グループバトルの10 seconds before the stageショート動画で、パフォーマンスのステージに出る直前に千悟くんがしたのは？",
+    correctAnswer: "カメラに手を振る",
     wrongAnswers: [
-      "誤答サンプルA q091",
-      "誤答サンプルB q091",
-      "誤答サンプルC q091"
+      "両手を合わせる",
+      "グッドの手をする",
+      "ピースをする"
     ],
     explanation: ""
   },
   {
     id: "q092",
     difficulty: "advanced",
-    question: "【仮問題】上級12：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q092",
+    question: "ポジション評価のグループ分けで、リーダー達が曲決めの為別室に入室した際、千悟くんは何番目に入室した？",
+    correctAnswer: "8番目",
     wrongAnswers: [
-      "誤答サンプルA q092",
-      "誤答サンプルB q092",
-      "誤答サンプルC q092"
+      "9番目",
+      "6番目",
+      "7番目"
     ],
     explanation: ""
   },
   {
     id: "q093",
     difficulty: "advanced",
-    question: "【仮問題】上級13：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q093",
+    question: "ポジション評価の内容発表時、千悟くんはどの高さに立っていた？",
+    correctAnswer: "2段目",
     wrongAnswers: [
-      "誤答サンプルA q093",
-      "誤答サンプルB q093",
-      "誤答サンプルC q093"
+      "床（段なし）",
+      "1段目",
+      "3段目"
     ],
     explanation: ""
   },
   {
     id: "q094",
     difficulty: "advanced",
-    question: "【仮問題】上級14：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q094",
+    question: "コンセプト評価の振り付け＆グループ発表時、千悟くんは練習生達の中で前から何番目に座っていた？",
+    correctAnswer: "一番前",
     wrongAnswers: [
-      "誤答サンプルA q094",
-      "誤答サンプルB q094",
-      "誤答サンプルC q094"
+      "二列目",
+      "三列目",
+      "四列目"
     ],
     explanation: ""
   },
   {
     id: "q095",
     difficulty: "advanced",
-    question: "【仮問題】上級15：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q095",
+    question: "HaruFilm制服ver.のフレームで、千悟くんが「していなかった」ポーズはどれ",
+    correctAnswer: "ルダハート",
     wrongAnswers: [
-      "誤答サンプルA q095",
-      "誤答サンプルB q095",
-      "誤答サンプルC q095"
+      "隣を指さすポーズ",
+      "ウインク",
+      "頬に指を当てるポーズ"
     ],
     explanation: ""
   },
   {
     id: "q096",
     difficulty: "advanced",
-    question: "【仮問題】上級16：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q096",
+    question: "Team\"S\"pecialのインスタライブで披露されたエピソードで、千悟くんは歩夢くんのことを何と表現した？",
+    correctAnswer: "オールラウンダー",
     wrongAnswers: [
-      "誤答サンプルA q096",
-      "誤答サンプルB q096",
-      "誤答サンプルC q096"
+      "天才肌",
+      "顔面国宝",
+      "王子様みたい"
     ],
     explanation: ""
   },
   {
     id: "q097",
     difficulty: "advanced",
-    question: "【仮問題】上級17：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q097",
+    question: "CanCam2026年5月号に掲載された練習生のプロフ名鑑で、千悟くんはどのタイプに分類されていた？",
+    correctAnswer: "癒し系",
     wrongAnswers: [
-      "誤答サンプルA q097",
-      "誤答サンプルB q097",
-      "誤答サンプルC q097"
+      "キュート系",
+      "王子さま系",
+      "ワイルド系"
     ],
     explanation: ""
   },
   {
     id: "q098",
     difficulty: "advanced",
-    question: "【仮問題】上級18：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q098",
+    question: "Canvaから公開された限定テンプレートに掲載されていたカットで千悟くんがしていたポーズは？",
+    correctAnswer: "腕を組む",
     wrongAnswers: [
-      "誤答サンプルA q098",
-      "誤答サンプルB q098",
-      "誤答サンプルC q098"
+      "腕を後ろに回す",
+      "顎に手を当てる",
+      "襟をつかむ"
     ],
     explanation: ""
   },
   {
     id: "q099",
     difficulty: "advanced",
-    question: "【仮問題】上級19：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q099",
+    question: "MpickardのHidden World＃6. Hidden Dateのカードに書かれていた一言は？",
+    correctAnswer: "今日も僕のこと見てね",
     wrongAnswers: [
-      "誤答サンプルA q099",
-      "誤答サンプルB q099",
-      "誤答サンプルC q099"
+      "明日も一緒にいようね",
+      "一緒に音楽聴こう",
+      "大好きだよ"
     ],
     explanation: ""
   },
   {
     id: "q100",
     difficulty: "advanced",
-    question: "【仮問題】上級20：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
-    correctAnswer: "正解サンプル q100",
+    question: "MpickardのHidden Worldで公開された12種類のうち、ウインクをする千悟くんが見れるのは何種？（動画部分も含む）",
+    correctAnswer: "4種",
     wrongAnswers: [
-      "誤答サンプルA q100",
-      "誤答サンプルB q100",
-      "誤答サンプルC q100"
+      "6種",
+      "2種",
+      "8種"
     ],
     explanation: ""
   }
