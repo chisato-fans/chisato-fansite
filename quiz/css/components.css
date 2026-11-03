@@ -182,7 +182,6 @@
   background-color: var(--paper-raised);
   background-size: cover;
   background-position: center;
-  border: 2.5px solid var(--ink);
   box-shadow: var(--shadow-card);
 }
 
