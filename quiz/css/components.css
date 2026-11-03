@@ -172,6 +172,33 @@
   gap: 10px;
 }
 
+/* ---- アイテム拡大表示(コレクション画面) ---- */
+
+.item-detail-icon {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background-color: var(--paper-raised);
+  background-size: cover;
+  background-position: center;
+  border: 2.5px solid var(--ink);
+  box-shadow: var(--shadow-card);
+}
+
+.item-detail-icon-emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.6rem;
+}
+
+.item-detail-provider {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
 .overlay-card.overlay-all-complete {
   box-shadow: 6px 6px 0 var(--stamp);
 }

@@ -560,6 +560,12 @@
   font-size: 1.4rem;
 }
 
+.gacha-result-provider {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
 .gacha-result-name {
   font-family: var(--font-body);
   font-weight: 900;
@@ -657,6 +663,12 @@
 .bingo-cell.is-opened {
   background: var(--paper-raised);
   border-color: var(--matcha);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.bingo-cell.is-opened:active {
+  transform: scale(0.94);
 }
 
 .bingo-cell.is-locked {

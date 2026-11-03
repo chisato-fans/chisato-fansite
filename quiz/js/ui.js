@@ -135,6 +135,28 @@ function showConfirmDialog({ title, message, confirmLabel, cancelLabel, onConfir
   );
 }
 
+/**
+ * コレクション画面で、獲得済みのビンゴマスをタップしたときに
+ * アイテムを拡大表示するオーバーレイ(提供者がいれば小さく表示)。
+ */
+function showItemDetailOverlay(item) {
+  const iconHtml = item.image
+    ? `<div class="item-detail-icon" style="background-image:url(${item.image})"></div>`
+    : `<div class="item-detail-icon item-detail-icon-emoji">${item.emoji}</div>`;
+  const providerHtml = item.provider ? `<p class="item-detail-provider">illustration: ${item.provider}</p>` : "";
+
+  showOverlay(`
+    <div class="overlay-card overlay-item-detail">
+      ${iconHtml}
+      <h3 class="overlay-title">${item.name}</h3>
+      ${providerHtml}
+      <p class="overlay-text">${item.memo || ""}</p>
+      <button id="overlay-item-detail-close" class="btn btn-primary">閉じる</button>
+    </div>
+  `);
+  document.getElementById("overlay-item-detail-close").addEventListener("click", closeOverlay, { once: true });
+}
+
 // ---------- TOP画面 ----------
 
 function renderTopScreen() {
@@ -371,11 +393,14 @@ function revealGachaResult() {
 
   const iconEl = document.getElementById("gacha-result-icon");
 
+  const providerEl = document.getElementById("gacha-result-provider");
+
   if (draw.result === "allComplete") {
     document.getElementById("gacha-result-banner").textContent = "ALL ITEMS COMPLETE";
     iconEl.textContent = "全制覇";
     iconEl.classList.add("is-text");
     iconEl.style.backgroundImage = "";
+    providerEl.hidden = true;
     document.getElementById("gacha-result-name").textContent = "アイテムは24種類すべて集め終わっています!";
     document.getElementById("gacha-result-memo").textContent = "「最初から遊ぶ」で新しい周回にも挑戦できます。";
     document.getElementById("gacha-result-actions").hidden = true;
@@ -393,6 +418,12 @@ function revealGachaResult() {
     iconEl.style.backgroundImage = `url(${item.image})`;
   } else {
     iconEl.style.backgroundImage = "";
+  }
+  if (item.provider) {
+    providerEl.textContent = `illustration: ${item.provider}`;
+    providerEl.hidden = false;
+  } else {
+    providerEl.hidden = true;
   }
   document.getElementById("gacha-result-name").textContent = item.name;
   document.getElementById("gacha-result-memo").textContent = item.memo || "";
@@ -455,10 +486,14 @@ function renderBingoGrid() {
       cellEl.innerHTML = `<span class="bingo-cell-label">FREE</span>`;
     } else if (cell.opened) {
       cellEl.classList.add("is-opened");
+      cellEl.setAttribute("role", "button");
+      cellEl.setAttribute("tabindex", "0");
+      cellEl.setAttribute("aria-label", `${cell.item.name}を拡大表示`);
       const iconHtml = cell.item.image
         ? `<span class="bingo-cell-icon" style="background-image:url(${cell.item.image})"></span>`
         : `<span class="bingo-cell-icon bingo-cell-emoji">${cell.item.emoji}</span>`;
       cellEl.innerHTML = `${iconHtml}<span class="bingo-cell-label">${cell.item.name}</span>`;
+      cellEl.addEventListener("click", () => showItemDetailOverlay(cell.item));
     } else {
       cellEl.classList.add("is-locked");
       cellEl.innerHTML = cell.item.silhouette
