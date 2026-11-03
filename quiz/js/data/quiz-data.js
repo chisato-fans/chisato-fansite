@@ -17,7 +17,7 @@
 //   ・選択肢(A/B/C/D)の並び順は、出題のたびにランダムでシャッフルされます。
 //     そのため、このデータ内では correctAnswer / wrongAnswers の順番を
 //     気にする必要はありません。
-//   ・難易度ごとの問題数は現在、初級30問・中級50問・上級20問を想定しています。
+//   ・難易度ごとの問題数は現在、初級35問・中級45問・上級20問を想定しています。
 //     問題数を増減する場合は js/quiz-engine.js 内の出題数設定(QUIZ_COMPOSITION)も
 //     あわせて確認してください。
 //   ・現在の内容はすべて仮データ(ダミー)です。実際の問題に差し替えてご利用ください。
@@ -387,8 +387,8 @@ const QUIZ_DATA = [
   },
   {
     id: "q031",
-    difficulty: "intermediate",
-    question: "【仮問題】中級1：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    difficulty: "beginner",
+    question: "【仮問題】初級31：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q031",
     wrongAnswers: [
       "誤答サンプルA q031",
@@ -399,8 +399,8 @@ const QUIZ_DATA = [
   },
   {
     id: "q032",
-    difficulty: "intermediate",
-    question: "【仮問題】中級2：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    difficulty: "beginner",
+    question: "【仮問題】初級32：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q032",
     wrongAnswers: [
       "誤答サンプルA q032",
@@ -411,8 +411,8 @@ const QUIZ_DATA = [
   },
   {
     id: "q033",
-    difficulty: "intermediate",
-    question: "【仮問題】中級3：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    difficulty: "beginner",
+    question: "【仮問題】初級33：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q033",
     wrongAnswers: [
       "誤答サンプルA q033",
@@ -423,8 +423,8 @@ const QUIZ_DATA = [
   },
   {
     id: "q034",
-    difficulty: "intermediate",
-    question: "【仮問題】中級4：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    difficulty: "beginner",
+    question: "【仮問題】初級34：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q034",
     wrongAnswers: [
       "誤答サンプルA q034",
@@ -435,8 +435,8 @@ const QUIZ_DATA = [
   },
   {
     id: "q035",
-    difficulty: "intermediate",
-    question: "【仮問題】中級5：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    difficulty: "beginner",
+    question: "【仮問題】初級35：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q035",
     wrongAnswers: [
       "誤答サンプルA q035",
@@ -448,7 +448,7 @@ const QUIZ_DATA = [
   {
     id: "q036",
     difficulty: "intermediate",
-    question: "【仮問題】中級6：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級1：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q036",
     wrongAnswers: [
       "誤答サンプルA q036",
@@ -460,7 +460,7 @@ const QUIZ_DATA = [
   {
     id: "q037",
     difficulty: "intermediate",
-    question: "【仮問題】中級7：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級2：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q037",
     wrongAnswers: [
       "誤答サンプルA q037",
@@ -472,7 +472,7 @@ const QUIZ_DATA = [
   {
     id: "q038",
     difficulty: "intermediate",
-    question: "【仮問題】中級8：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級3：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q038",
     wrongAnswers: [
       "誤答サンプルA q038",
@@ -484,7 +484,7 @@ const QUIZ_DATA = [
   {
     id: "q039",
     difficulty: "intermediate",
-    question: "【仮問題】中級9：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級4：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q039",
     wrongAnswers: [
       "誤答サンプルA q039",
@@ -496,7 +496,7 @@ const QUIZ_DATA = [
   {
     id: "q040",
     difficulty: "intermediate",
-    question: "【仮問題】中級10：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級5：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q040",
     wrongAnswers: [
       "誤答サンプルA q040",
@@ -508,7 +508,7 @@ const QUIZ_DATA = [
   {
     id: "q041",
     difficulty: "intermediate",
-    question: "【仮問題】中級11：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級6：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q041",
     wrongAnswers: [
       "誤答サンプルA q041",
@@ -520,7 +520,7 @@ const QUIZ_DATA = [
   {
     id: "q042",
     difficulty: "intermediate",
-    question: "【仮問題】中級12：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級7：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q042",
     wrongAnswers: [
       "誤答サンプルA q042",
@@ -532,7 +532,7 @@ const QUIZ_DATA = [
   {
     id: "q043",
     difficulty: "intermediate",
-    question: "【仮問題】中級13：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級8：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q043",
     wrongAnswers: [
       "誤答サンプルA q043",
@@ -544,7 +544,7 @@ const QUIZ_DATA = [
   {
     id: "q044",
     difficulty: "intermediate",
-    question: "【仮問題】中級14：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級9：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q044",
     wrongAnswers: [
       "誤答サンプルA q044",
@@ -556,7 +556,7 @@ const QUIZ_DATA = [
   {
     id: "q045",
     difficulty: "intermediate",
-    question: "【仮問題】中級15：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級10：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q045",
     wrongAnswers: [
       "誤答サンプルA q045",
@@ -568,7 +568,7 @@ const QUIZ_DATA = [
   {
     id: "q046",
     difficulty: "intermediate",
-    question: "【仮問題】中級16：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級11：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q046",
     wrongAnswers: [
       "誤答サンプルA q046",
@@ -580,7 +580,7 @@ const QUIZ_DATA = [
   {
     id: "q047",
     difficulty: "intermediate",
-    question: "【仮問題】中級17：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級12：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q047",
     wrongAnswers: [
       "誤答サンプルA q047",
@@ -592,7 +592,7 @@ const QUIZ_DATA = [
   {
     id: "q048",
     difficulty: "intermediate",
-    question: "【仮問題】中級18：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級13：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q048",
     wrongAnswers: [
       "誤答サンプルA q048",
@@ -604,7 +604,7 @@ const QUIZ_DATA = [
   {
     id: "q049",
     difficulty: "intermediate",
-    question: "【仮問題】中級19：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級14：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q049",
     wrongAnswers: [
       "誤答サンプルA q049",
@@ -616,7 +616,7 @@ const QUIZ_DATA = [
   {
     id: "q050",
     difficulty: "intermediate",
-    question: "【仮問題】中級20：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級15：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q050",
     wrongAnswers: [
       "誤答サンプルA q050",
@@ -628,7 +628,7 @@ const QUIZ_DATA = [
   {
     id: "q051",
     difficulty: "intermediate",
-    question: "【仮問題】中級21：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級16：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q051",
     wrongAnswers: [
       "誤答サンプルA q051",
@@ -640,7 +640,7 @@ const QUIZ_DATA = [
   {
     id: "q052",
     difficulty: "intermediate",
-    question: "【仮問題】中級22：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級17：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q052",
     wrongAnswers: [
       "誤答サンプルA q052",
@@ -652,7 +652,7 @@ const QUIZ_DATA = [
   {
     id: "q053",
     difficulty: "intermediate",
-    question: "【仮問題】中級23：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級18：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q053",
     wrongAnswers: [
       "誤答サンプルA q053",
@@ -664,7 +664,7 @@ const QUIZ_DATA = [
   {
     id: "q054",
     difficulty: "intermediate",
-    question: "【仮問題】中級24：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級19：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q054",
     wrongAnswers: [
       "誤答サンプルA q054",
@@ -676,7 +676,7 @@ const QUIZ_DATA = [
   {
     id: "q055",
     difficulty: "intermediate",
-    question: "【仮問題】中級25：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級20：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q055",
     wrongAnswers: [
       "誤答サンプルA q055",
@@ -688,7 +688,7 @@ const QUIZ_DATA = [
   {
     id: "q056",
     difficulty: "intermediate",
-    question: "【仮問題】中級26：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級21：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q056",
     wrongAnswers: [
       "誤答サンプルA q056",
@@ -700,7 +700,7 @@ const QUIZ_DATA = [
   {
     id: "q057",
     difficulty: "intermediate",
-    question: "【仮問題】中級27：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級22：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q057",
     wrongAnswers: [
       "誤答サンプルA q057",
@@ -712,7 +712,7 @@ const QUIZ_DATA = [
   {
     id: "q058",
     difficulty: "intermediate",
-    question: "【仮問題】中級28：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級23：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q058",
     wrongAnswers: [
       "誤答サンプルA q058",
@@ -724,7 +724,7 @@ const QUIZ_DATA = [
   {
     id: "q059",
     difficulty: "intermediate",
-    question: "【仮問題】中級29：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級24：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q059",
     wrongAnswers: [
       "誤答サンプルA q059",
@@ -736,7 +736,7 @@ const QUIZ_DATA = [
   {
     id: "q060",
     difficulty: "intermediate",
-    question: "【仮問題】中級30：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級25：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q060",
     wrongAnswers: [
       "誤答サンプルA q060",
@@ -748,7 +748,7 @@ const QUIZ_DATA = [
   {
     id: "q061",
     difficulty: "intermediate",
-    question: "【仮問題】中級31：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級26：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q061",
     wrongAnswers: [
       "誤答サンプルA q061",
@@ -760,7 +760,7 @@ const QUIZ_DATA = [
   {
     id: "q062",
     difficulty: "intermediate",
-    question: "【仮問題】中級32：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級27：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q062",
     wrongAnswers: [
       "誤答サンプルA q062",
@@ -772,7 +772,7 @@ const QUIZ_DATA = [
   {
     id: "q063",
     difficulty: "intermediate",
-    question: "【仮問題】中級33：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級28：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q063",
     wrongAnswers: [
       "誤答サンプルA q063",
@@ -784,7 +784,7 @@ const QUIZ_DATA = [
   {
     id: "q064",
     difficulty: "intermediate",
-    question: "【仮問題】中級34：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級29：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q064",
     wrongAnswers: [
       "誤答サンプルA q064",
@@ -796,7 +796,7 @@ const QUIZ_DATA = [
   {
     id: "q065",
     difficulty: "intermediate",
-    question: "【仮問題】中級35：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級30：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q065",
     wrongAnswers: [
       "誤答サンプルA q065",
@@ -808,7 +808,7 @@ const QUIZ_DATA = [
   {
     id: "q066",
     difficulty: "intermediate",
-    question: "【仮問題】中級36：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級31：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q066",
     wrongAnswers: [
       "誤答サンプルA q066",
@@ -820,7 +820,7 @@ const QUIZ_DATA = [
   {
     id: "q067",
     difficulty: "intermediate",
-    question: "【仮問題】中級37：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級32：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q067",
     wrongAnswers: [
       "誤答サンプルA q067",
@@ -832,7 +832,7 @@ const QUIZ_DATA = [
   {
     id: "q068",
     difficulty: "intermediate",
-    question: "【仮問題】中級38：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級33：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q068",
     wrongAnswers: [
       "誤答サンプルA q068",
@@ -844,7 +844,7 @@ const QUIZ_DATA = [
   {
     id: "q069",
     difficulty: "intermediate",
-    question: "【仮問題】中級39：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級34：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q069",
     wrongAnswers: [
       "誤答サンプルA q069",
@@ -856,7 +856,7 @@ const QUIZ_DATA = [
   {
     id: "q070",
     difficulty: "intermediate",
-    question: "【仮問題】中級40：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級35：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q070",
     wrongAnswers: [
       "誤答サンプルA q070",
@@ -868,7 +868,7 @@ const QUIZ_DATA = [
   {
     id: "q071",
     difficulty: "intermediate",
-    question: "【仮問題】中級41：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級36：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q071",
     wrongAnswers: [
       "誤答サンプルA q071",
@@ -880,7 +880,7 @@ const QUIZ_DATA = [
   {
     id: "q072",
     difficulty: "intermediate",
-    question: "【仮問題】中級42：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級37：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q072",
     wrongAnswers: [
       "誤答サンプルA q072",
@@ -892,7 +892,7 @@ const QUIZ_DATA = [
   {
     id: "q073",
     difficulty: "intermediate",
-    question: "【仮問題】中級43：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級38：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q073",
     wrongAnswers: [
       "誤答サンプルA q073",
@@ -904,7 +904,7 @@ const QUIZ_DATA = [
   {
     id: "q074",
     difficulty: "intermediate",
-    question: "【仮問題】中級44：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級39：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q074",
     wrongAnswers: [
       "誤答サンプルA q074",
@@ -916,7 +916,7 @@ const QUIZ_DATA = [
   {
     id: "q075",
     difficulty: "intermediate",
-    question: "【仮問題】中級45：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級40：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q075",
     wrongAnswers: [
       "誤答サンプルA q075",
@@ -928,7 +928,7 @@ const QUIZ_DATA = [
   {
     id: "q076",
     difficulty: "intermediate",
-    question: "【仮問題】中級46：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級41：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q076",
     wrongAnswers: [
       "誤答サンプルA q076",
@@ -940,7 +940,7 @@ const QUIZ_DATA = [
   {
     id: "q077",
     difficulty: "intermediate",
-    question: "【仮問題】中級47：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級42：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q077",
     wrongAnswers: [
       "誤答サンプルA q077",
@@ -952,7 +952,7 @@ const QUIZ_DATA = [
   {
     id: "q078",
     difficulty: "intermediate",
-    question: "【仮問題】中級48：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級43：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q078",
     wrongAnswers: [
       "誤答サンプルA q078",
@@ -964,7 +964,7 @@ const QUIZ_DATA = [
   {
     id: "q079",
     difficulty: "intermediate",
-    question: "【仮問題】中級49：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級44：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q079",
     wrongAnswers: [
       "誤答サンプルA q079",
@@ -976,7 +976,7 @@ const QUIZ_DATA = [
   {
     id: "q080",
     difficulty: "intermediate",
-    question: "【仮問題】中級50：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
+    question: "【仮問題】中級45：ここに問題文を入力してください。(CHISATOに関する4択クイズ)",
     correctAnswer: "正解サンプル q080",
     wrongAnswers: [
       "誤答サンプルA q080",
