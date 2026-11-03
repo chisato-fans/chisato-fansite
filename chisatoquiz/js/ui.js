@@ -432,7 +432,6 @@ function revealGachaResult() {
 
   const correctCount = lastQuizResult ? lastQuizResult.correctCount : 0;
   const totalQuestions = lastQuizResult ? lastQuizResult.totalQuestions : 25;
-  document.getElementById("btn-share-save").onclick = () => saveItemImage(item);
   document.getElementById("btn-share-x").onclick = () => shareItemToSns(item, correctCount, totalQuestions);
 
   // 仕様確認事項4: アイテム獲得直後にビンゴ判定 → 演出はガチャ画面上でこの場に表示する

@@ -32,29 +32,6 @@ function loadImageAsync(src) {
   });
 }
 
-/** 中央揃えで複数行に折り返してテキストを描画する。 */
-function drawWrappedText(ctx, text, centerX, startY, maxWidth, lineHeight) {
-  if (!text) return startY;
-  const chars = Array.from(text);
-  let line = "";
-  let y = startY;
-  chars.forEach((ch) => {
-    const testLine = line + ch;
-    if (ctx.measureText(testLine).width > maxWidth && line !== "") {
-      ctx.fillText(line, centerX, y);
-      line = ch;
-      y += lineHeight;
-    } else {
-      line = testLine;
-    }
-  });
-  if (line) {
-    ctx.fillText(line, centerX, y);
-    y += lineHeight;
-  }
-  return y;
-}
-
 /** アイテムのアイコン(画像 or 絵文字)をCanvasに描画する。 */
 async function drawItemIconOnCanvas(ctx, item, x, y, size) {
   if (item.image) {
@@ -94,60 +71,6 @@ async function drawLockedIconOnCanvas(ctx, item, x, y, size) {
   ctx.globalAlpha = 0.5;
   ctx.fillText("🔒", x + size / 2, y + size / 2 + size * 0.05);
   ctx.globalAlpha = 1;
-}
-
-/** ガチャ結果のSNSシェア用画像(1080x1080)を生成する。 */
-async function generateItemShareCanvas(item) {
-  const canvas = document.createElement("canvas");
-  canvas.width = 1080;
-  canvas.height = 1080;
-  const ctx = canvas.getContext("2d");
-
-  ctx.fillStyle = SHARE_COLORS.paper;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.strokeStyle = SHARE_COLORS.ink;
-  ctx.lineWidth = 6;
-  ctx.strokeRect(30, 30, canvas.width - 60, canvas.height - 60);
-
-  ctx.textAlign = "center";
-  ctx.fillStyle = SHARE_COLORS.matchaDeep;
-  ctx.font = `46px ${SHARE_FONT_DISPLAY}`;
-  ctx.fillText(SITE_CONFIG.siteName, canvas.width / 2, 130);
-
-  ctx.save();
-  ctx.translate(canvas.width / 2, 215);
-  ctx.rotate((-2 * Math.PI) / 180);
-  ctx.fillStyle = SHARE_COLORS.stamp;
-  ctx.fillRect(-150, -36, 300, 72);
-  ctx.fillStyle = SHARE_COLORS.paperRaised;
-  ctx.font = `30px ${SHARE_FONT_DISPLAY}`;
-  ctx.fillText("NEW ITEM", 0, 10);
-  ctx.restore();
-
-  ctx.fillStyle = SHARE_COLORS.paperRaised;
-  ctx.beginPath();
-  ctx.arc(canvas.width / 2, 480, 210, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.lineWidth = 5;
-  ctx.strokeStyle = SHARE_COLORS.ink;
-  ctx.stroke();
-
-  await drawItemIconOnCanvas(ctx, item, canvas.width / 2 - 140, 480 - 140, 280);
-
-  ctx.fillStyle = SHARE_COLORS.ink;
-  ctx.font = `900 34px ${SHARE_FONT_BODY}`;
-  ctx.fillText(item.name, canvas.width / 2, 770);
-
-  ctx.fillStyle = SHARE_COLORS.inkSoft;
-  ctx.font = `28px ${SHARE_FONT_BODY}`;
-  drawWrappedText(ctx, item.memo || "", canvas.width / 2, 830, 820, 38);
-
-  ctx.fillStyle = SHARE_COLORS.matchaDeep;
-  ctx.font = `bold 24px ${SHARE_FONT_BODY}`;
-  ctx.fillText(SITE_CONFIG.siteUrl || SITE_CONFIG.siteName, canvas.width / 2, 1010);
-
-  return canvas;
 }
 
 /** ビンゴカード保存用の画像(1080x1400)を生成する。 */
@@ -243,10 +166,6 @@ function downloadCanvasAsPng(canvas, filename) {
   }, "image/png");
 }
 
-function canvasToBlobAsync(canvas) {
-  return new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
-}
-
 /** 獲得アイテムのシェア用テキストを組み立てる。 */
 function buildItemShareText(item, correctCount, totalQuestions) {
   const tags = SITE_CONFIG.shareHashtags.map((t) => `#${t}`).join(" ");
@@ -260,50 +179,27 @@ function buildItemShareText(item, correctCount, totalQuestions) {
   return lines.join("\n");
 }
 
-/** Xの投稿画面(intent)をテキスト・URL付きで開く。画像は自動添付できない仕様のため含まれない。 */
-function openXShareIntent(text, url) {
-  const params = new URLSearchParams({ text });
-  if (url) params.set("url", url);
-  const intentUrl = `https://twitter.com/intent/tweet?${params.toString()}`;
-  window.open(intentUrl, "_blank", "noopener,noreferrer");
-}
-
 /**
- * 「Xでシェア」ボタンから呼ばれる処理。
- * 1. ファイル共有に対応した環境(主にスマートフォン)では navigator.share() で
- *    画像・テキストをまとめて共有し、ユーザーがXアプリ等を選べるようにする。
- * 2. 非対応環境では、画像をダウンロードしつつXの投稿画面を開く
- *    (「画像を保存してSNSに投稿」の導線。画像はユーザーが手動で添付する)。
+ * Xの投稿画面(intent)をテキスト付きで開く。
+ * クリックのその場で(await等を挟まず)同期的に呼ぶこと。非同期処理を挟むと、
+ * iOSのSafari等ではユーザー操作とみなされずアプリ起動・新規タブ表示が
+ * ブロックされてしまうため。
  */
-async function shareItemToSns(item, correctCount, totalQuestions) {
-  const canvas = await generateItemShareCanvas(item);
-  const filename = `chisato-quiz-gacha_${item.id}.png`;
-  const text = buildItemShareText(item, correctCount, totalQuestions);
-
-  const blob = await canvasToBlobAsync(canvas);
-  if (!blob) return;
-
-  if (navigator.canShare) {
-    const file = new File([blob], filename, { type: "image/png" });
-    if (navigator.canShare({ files: [file] })) {
-      try {
-        await navigator.share({ files: [file], text });
-        return;
-      } catch (e) {
-        if (e && e.name === "AbortError") return; // ユーザーがキャンセルした
-        // それ以外のエラーはフォールバックへ
-      }
-    }
-  }
-
-  downloadCanvasAsPng(canvas, filename);
-  openXShareIntent(text);
+function openXShareIntent(text) {
+  const intentUrl = `https://twitter.com/intent/tweet?${new URLSearchParams({ text })}`;
+  const a = document.createElement("a");
+  a.href = intentUrl;
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
 }
 
-/** 「画像を保存」ボタン(ガチャ結果画面)から呼ばれる処理。 */
-async function saveItemImage(item) {
-  const canvas = await generateItemShareCanvas(item);
-  downloadCanvasAsPng(canvas, `chisato-quiz-gacha_${item.id}.png`);
+/** 「Xでシェア」ボタンから呼ばれる処理。Xの投稿画面を文面付きで開く。 */
+function shareItemToSns(item, correctCount, totalQuestions) {
+  const text = buildItemShareText(item, correctCount, totalQuestions);
+  openXShareIntent(text);
 }
 
 /** 「ビンゴカードを保存」ボタン(コレクション画面)から呼ばれる処理。 */
