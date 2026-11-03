@@ -19,7 +19,7 @@
   <header class="app-header">
     <div class="hanko" aria-hidden="true">千悟</div>
     <p class="app-header-eyebrow">小林千悟くんファン制作クイズ</p>
-    <h1 class="app-title">CHISATO QUIZ GACHA</h1>
+    <h1 class="app-title"><img src="assets/ui/logo.png" alt="CHISATO QUIZ GACHA" class="app-title-logo"></h1>
   </header>
 
   <main id="screens">
@@ -103,19 +103,17 @@
         <p class="gacha-caption" id="gacha-caption">25問おつかれさま!ガチャに挑戦しよう</p>
 
         <div class="gacha-machine" id="gacha-machine">
-          <div class="gacha-machine-dome">
-            <span class="gacha-machine-dome-shine"></span>
+          <img src="assets/ui/gacha-machine.png" alt="" class="gacha-machine-img">
+
+          <div class="gacha-capsule-anchor">
+            <div class="gacha-capsule" id="gacha-capsule" hidden>
+              <div class="gacha-capsule-top"></div>
+              <div class="gacha-capsule-bottom"></div>
+            </div>
+
+            <div class="gacha-sparkles" id="gacha-sparkles"></div>
           </div>
-          <div class="gacha-machine-body">GACHA</div>
-          <div class="gacha-machine-lever"></div>
         </div>
-
-        <div class="gacha-capsule" id="gacha-capsule" hidden>
-          <div class="gacha-capsule-top"></div>
-          <div class="gacha-capsule-bottom"></div>
-        </div>
-
-        <div class="gacha-sparkles" id="gacha-sparkles"></div>
 
         <button id="btn-gacha-start" class="btn btn-primary btn-large">ガチャを回す!</button>
       </div>

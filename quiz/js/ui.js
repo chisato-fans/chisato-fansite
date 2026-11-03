@@ -320,12 +320,15 @@ function renderResultScreen(result) {
 
 // ---------- GACHA画面 ----------
 
+const GACHA_CAPSULE_COLORS = ["capsule-pink", "capsule-matcha"];
+
 function resetGachaScreen() {
   document.getElementById("gacha-stage").hidden = false;
   document.getElementById("gacha-result").hidden = true;
   document.getElementById("gacha-machine").className = "gacha-machine";
   document.getElementById("gacha-capsule").hidden = true;
-  document.getElementById("gacha-capsule").className = "gacha-capsule";
+  const capsuleColor = GACHA_CAPSULE_COLORS[Math.floor(Math.random() * GACHA_CAPSULE_COLORS.length)];
+  document.getElementById("gacha-capsule").className = `gacha-capsule ${capsuleColor}`;
   document.getElementById("gacha-sparkles").className = "gacha-sparkles";
   document.getElementById("gacha-sparkles").innerHTML = "";
   document.getElementById("gacha-caption").textContent = "25問おつかれさま!ガチャに挑戦しよう";
@@ -366,7 +369,6 @@ function playGachaAnimation(onComplete) {
 
       setTimeout(() => {
         capsule.classList.add("is-opening");
-        caption.textContent = "カプセルが開く…!";
 
         setTimeout(() => {
           sparkles.classList.add("is-sparkling");
