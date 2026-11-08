@@ -331,7 +331,7 @@ const QUIZ_DATA = [
     question: "Naturalのフリを作る際、3組に分かれて作りましたが、千悟くんが一緒に作ったのは誰？",
     correctAnswer: "石田亮太くん",
     wrongAnswers: [
-      "朝香孝太郎くん",
+      "浅香孝太郎くん",
       "チェン・リッキーくん",
       "安部結蘭くん"
     ],
